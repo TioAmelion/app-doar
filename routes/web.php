@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('admin.layout');
-});
+Route::get('/dashboard', function () {
+
+    $user = User::find(1);
+
+    foreach ($user->papel as $role) {
+        //
+        $t[] = $role->nome_papel;
+    }
+    dd($t);
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
