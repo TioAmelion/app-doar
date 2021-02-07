@@ -14,7 +14,7 @@ class CreatePapeisTable extends Migration
     public function up()
     {
         Schema::create('papeis', function (Blueprint $table) {
-            $table->git addid();
+            $table->id();
             $table->String('nome_papel', 50); 
             $table->String('descricao', 100); 
             $table->timestamps();
