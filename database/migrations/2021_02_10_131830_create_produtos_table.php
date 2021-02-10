@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePessoaFisicasTable extends Migration
+class CreateProdutosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreatePessoaFisicasTable extends Migration
      */
     public function up()
     {
-        Schema::create('pessoa_fisicas', function (Blueprint $table) {
+        Schema::create('produtos', function (Blueprint $table) {
             $table->id();
+            $table->Integer('quantidade');
+            $table->string('nome_produto');
+            $table->date('date_fabricacao');
+            $table->date('date_vencimento');
+            $table->foreignId('instituicao_id')->constrained('instituicaos')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreatePessoaFisicasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pessoa_fisicas');
+        Schema::dropIfExists('produtos');
     }
 }
