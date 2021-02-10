@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\pessoa_fisica;
+use App\Models\fornecedor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PessoaFisicaFactory extends Factory
+class FornecedorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = pessoa_fisica::class;
+    protected $model = fornecedor::class;
 
     /**
      * Define the model's default state.

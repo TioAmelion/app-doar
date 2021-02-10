@@ -15,12 +15,14 @@ class CreatePessoasTable extends Migration
     {
         Schema::create('pessoas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+            $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');
             $table->string('nome_pessoa', 100);
             $table->BigInteger('telefone');
             $table->string('num_Bi', 50);
             $table->string('provincia', 50);
             $table->string('municipio', 50);
+            $table->date('data_nascimento');
+            $table->date('nif');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreatePessoasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pessoa');
+        Schema::dropIfExists('pessoas');
     }
 }

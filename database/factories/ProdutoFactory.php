@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\pessoa;
+use App\Models\produto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PessoaFactory extends Factory
+class ProdutoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = pessoa::class;
+    protected $model = produto::class;
 
     /**
      * Define the model's default state.
