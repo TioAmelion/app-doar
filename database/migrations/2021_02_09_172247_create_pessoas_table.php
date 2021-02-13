@@ -18,11 +18,10 @@ class CreatePessoasTable extends Migration
             $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');
             $table->string('nome_pessoa', 100);
             $table->BigInteger('telefone');
-            $table->string('num_Bi', 50);
             $table->string('provincia', 50);
             $table->string('municipio', 50);
             $table->date('data_nascimento');
-            $table->date('nif');
+            $table->string('nif',20);
             $table->timestamps();
         });
     }

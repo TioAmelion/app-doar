@@ -18,15 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/index', function () {
+    return view('admin/layout');
+});
+
+Route::resource('doador','App\Http\Controllers\DoadorController');
+
 Route::get('/dashboard', function () {
-
-    $user = User::find(1);
-
-    foreach ($user->papel as $role) {
-        //
-        $t[] = $role->nome_papel;
-    }
-    dd($t);
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
