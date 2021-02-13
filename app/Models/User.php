@@ -48,9 +48,8 @@ class User extends Authenticatable
         return $this->belongsToMany(papei::class);
     }
 
-    public function pessoa()
+    public function user()
     {
-        return $this->hasOne(Pessoa::class);
+        return $this->hasOne(pessoa::class);
     }
-
 }
