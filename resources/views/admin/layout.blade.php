@@ -19,6 +19,7 @@
 				</div> 
 			</div>
 		</main>
+		@include('admin.includes.chat')
 	</div><!--theme-layout end-->
 	@include('admin.includes.script')
 </body>
