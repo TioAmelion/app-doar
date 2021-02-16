@@ -4,7 +4,7 @@
 										<img src="assets/images/wd-logo.png" alt="">
 										<h3>Ajuda-nos a ajudar, fazendo a sua doação</h3>
 										<div class="sign_link">
-											<h3><a href="/doador" title="">Increver-se</a></h3>
+											<h3><a href="{{ route('register') }}" title="">Increver-se</a></h3>
 										</div>
 									</div><!--widget-about end-->
 									
