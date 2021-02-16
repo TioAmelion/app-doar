@@ -29,11 +29,123 @@
                         <div class="post-topbar">
                             <h3 class="display-4 font-weight-bold">Cadastre-se e comece já a sua campanha!</h3>
                             <br>
-                            <form method="POST" action="{{ route('register') }}">
+                            <ul class="sign-control">
+                                <li data-tab="tab-1"><a onclick="doa()" href="#" title="">Doador</a></li> 
+                                <li data-tab="tab-1" class="current"><a onclick="insti()" href="#" title="">Instituição</a></li> 
+                                <li data-tab="tab-2" class="current"><a onclick="forn()" href="#" title="">Fornecedor</a></li>   
+                            </ul> 
+
+                            <form id="doador" method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo">
+                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo do Doador">
+                                    </div>
+                                    
+                                    <div class="form-group col-md-8">
+                                        <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="tel" class="form-control" id="telemovel" name="telemovel" placeholder="Telemóvel">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-4">
+                                        <input type="text" class="form-control" id="nif" name="nif" placeholder="NIF">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <input type="date" class="form-control" name="data_nasc" id="data_nasc">
+                                    </div>
+                                  <div class="form-group col-md-auto">
+                                    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Província">
+                                  </div>
+                                  <div class="form-group col-md-auto">
+                                    <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio">
+                                  </div>
+                                </div>
+                                <br>
+                                <div class="form-row">
+                                    <div class="form-group bg-dark col-md-12" style="color: white ;padding: 10px 10px">
+                                        <span>Credências de Acesso ao Sistema</span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Usuario">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-lg-6">
+                                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Palavra passe">
+                                    </div>
+                                    <div class="form-group col-lg-6"> 
+                                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Confirmar palavra passe"> 
+                                    </div>
+                                </div>
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                                    {{ __('Já tens registro?') }}
+                                </a> &nbsp;
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </form>
+
+                            <form id="instituicao" method="POST" action="{{ route('register') }}">
+                                @csrf
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da Instituição">
+                                    </div>
+                                    
+                                    <div class="form-group col-md-8">
+                                        <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="tel" class="form-control" id="telemovel" name="telemovel" placeholder="Telemóvel">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-4">
+                                        <input type="text" class="form-control" id="nif" name="nif" placeholder="NIF">
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <input type="date" class="form-control" name="data_nasc" id="data_nasc">
+                                    </div>
+                                  <div class="form-group col-md-auto">
+                                    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Província">
+                                  </div>
+                                  <div class="form-group col-md-auto">
+                                    <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio">
+                                  </div>
+                                </div>
+                                <br>
+                                <div class="form-row">
+                                    <div class="form-group bg-dark col-md-12" style="color: white ;padding: 10px 10px">
+                                        <span>Credências de Acesso ao Sistema</span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Usuario">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-lg-6">
+                                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Palavra passe">
+                                    </div>
+                                    <div class="form-group col-lg-6"> 
+                                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Confirmar palavra passe"> 
+                                    </div>
+                                </div>
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                                    {{ __('Já tens registro?') }}
+                                </a> &nbsp;
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </form>
+
+                            <form id="fornecedor" method="POST" action="{{ route('register') }}">
+                                @csrf
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do fornecedor">
                                     </div>
                                     
                                     <div class="form-group col-md-8">
@@ -104,11 +216,35 @@
     </div><!--theme-layout end-->
 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#instituicao').hide()
+        $('#fornecedor').hide()
+    })
+
+    function insti(){
+        $('#doador').hide()
+        $('#fornecedor').hide()
+        $('#instituicao').show()
+
+    }
+
+    function doa(){
+        $('#fornecedor').hide()
+        $('#instituicao').hide()
+        $('#doador').show()
+    }
+
+    function forn(){  
+        $('#instituicao').hide()
+        $('#doador').hide()
+        $('#fornecedor').show()
+    }   
+</script>
 <script type="text/javascript" src="assets/js/popper.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
-<script type="text/javascript" src="assets/js/disabled.js"></script>
 </body>
 <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'a2plcpnl0235'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='../../../img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
 <!-- Mirrored from gambolthemes.net/html/workwise/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Oct 2018 09:39:01 GMT -->
