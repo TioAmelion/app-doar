@@ -15,8 +15,9 @@ class CreateDoadorsTable extends Migration
     {
         Schema::create('doadors', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo_doador');
             $table->foreignID('pessoa_id')->constrained('pessoas')->onDelete('cascade');
+
+            $table->enum('tipo_doador', ['pessoa_fisica', 'pessoa_juridica']);
             $table->timestamps();
         });
     }

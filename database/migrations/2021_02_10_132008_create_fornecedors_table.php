@@ -15,11 +15,13 @@ class CreateFornecedorsTable extends Migration
     {
         Schema::create('fornecedors', function (Blueprint $table) {
             $table->id();
+            $table->foreignID('pessoa_id')->constrained('pessoas')->onDelete('cascade');
+
             $table->string('area_actuacao');
             $table->timestamps();
         });
 
-        Schema::create('fornecedors_produtos', function (Blueprint $table) {
+        Schema::create('fornecedors_produtos', function (Blueprint $table) { 
             $table->id();
             $table->foreignId('fornecedor_id')->constrained('fornecedors')->onDelete('cascade');
 
