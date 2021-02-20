@@ -41,11 +41,9 @@ class DoadorController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-
         $request->validate([
             'nome_doador' => 'required|string|min:5|max:40',
-            'telemovel' => 'required|min:9|max:14',
+            'telemovel' => 'required|min:9',
             'genero' => 'required',
             'municipio' => 'required|string|max:20',
             'provincia' => 'required|string|min:5|max:20',
@@ -56,12 +54,6 @@ class DoadorController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
         ]);
-
-        // $user = User::create([
-        //     'name' => $request->get('nome'),
-        //     'email' => $request->get('email'),
-        //     'password' => $request->get('password')
-        // ]);
 
         Auth::login($user = User::create([
             'name' => $request->name,
