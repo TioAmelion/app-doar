@@ -12,7 +12,9 @@
 					<div class="main-section-data">
 						<div class="row">
 							@include('admin.includes.sectionLeft')
-							@include('admin.includes.feed')
+
+							@yield('conteudo')
+
 							@include('admin.includes.sectionRigth')
 						</div>
 					</div><!-- main-section-data end-->
