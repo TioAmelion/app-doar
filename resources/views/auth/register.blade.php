@@ -40,7 +40,7 @@
                                     </div>
                                 @endif
                             </div>
-                            
+                            <!-- DOADOR -->
                             <form id="doador" method="POST" action="{{ route('doador.store') }}">
                                 @csrf
                                 <div class="form-row">
@@ -103,6 +103,7 @@
                                         </span>
                                     @enderror
                                   </div>
+
                                   <div class="form-group">
                                     <select class="form-control @error('genero') is-invalid @enderror col-12" name="genero">
                                         <option value="" selected disabled>Selecione o Genero</option>
@@ -127,6 +128,7 @@
                                         </span>
                                     @enderror
                                   </div>
+
                                 </div>
                                 <br>
                                 <div class="form-row">
@@ -146,16 +148,16 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-lg-6">
-                                        <input type="password" class="form-control form-control @error('password') is-invalid @enderror" id="senha" name="password" placeholder="Palavra passe" value="{{old('password')}}"> 
+                                        <input type="password" class="form-control" id="senha" name="password" placeholder="Palavra passe" value="{{old('password')}}">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="senha" name="password_confirmation" placeholder="Confirmar palavra passe">
                                          @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror 
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <input type="password" class="form-control" id="senha" name="password_confirmation" placeholder="Confirmar palavra passe"> 
-                                    </div>
                                 </div>
                                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                                     {{ __('Já tens registro?') }}
@@ -163,57 +165,116 @@
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
                             </form>
 
-                            <form id="instituicao" method="POST" action="{{ route('register') }}">
+                            <!-- INSTITUICAO -->
+                            <form id="instituicao" method="POST" action="{{ route('instituicao.store') }}">
                                 @csrf
+
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da Instituição">
+                                        <input type="text" class="form-control @error('nome_instituicao') is-invalid @enderror" id="nome_instituicao" name="nome_instituicao" placeholder="Nome Completo da Instituicao" value="{{old('nome_instituicao')}}">
+                                         @error('nome_instituicao')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
-                                    
-                                    <div class="form-group col-md-8">
-                                        <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                                     <div class="form-group col-md-8">
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email" name="email" value="{{old('email')}}">
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input type="tel" class="form-control" id="telemovel" name="telemovel" placeholder="Telemóvel">
+                                        <input type="text" class="form-control @error('sigla') is-invalid @enderror" id="sigla" name="sigla" placeholder="Sigla da instituicao" value="{{old('sigla')}}">
+                                        @error('sigla')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
+
                                 <div class="form-row">
-                                    <div class="form-group col-sm-4">
-                                        <input type="text" class="form-control" id="nif" name="nif" placeholder="NIF">
+                                    <div class="form-group col-md-8">
+                                        <input type="text" class="form-control @error('direitor') is-invalid @enderror" id="direitor" placeholder="Nome do Direitor" name="direitor" value="{{old('direitor')}}">
+                                        @error('direitor')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-sm-4">
-                                        <input type="date" class="form-control" name="data_nasc" id="data_nasc">
+                                        <input type="text" class="form-control @error('nif') is-invalid @enderror" id="nif" name="nif" placeholder="Número do Nif" value="{{old('nif')}}">
+                                        @error('nif')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="tel" class="form-control @error('telemovelI') is-invalid @enderror" id="telemovelI" name="telemovelI" placeholder="TelemóvelI" value="{{old('telemovelI')}}">
+                                        @error('telemovelI')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <input type="text" class="form-control @error('provinciaI') is-invalid @enderror" id="provinciaI" name="provinciaI" placeholder="Província" value="{{old('provinciaI')}}">
+                                    @error('provinciaI')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    </div>
+
                                   <div class="form-group col-md-auto">
-                                    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Província">
+                                        <input type="text" class="form-control @error('municipioI') is-invalid @enderror" id="municipioI" name="municipioI" placeholder="Municipio" value="{{old('municipioI')}}">
+                                        @error('municipioI')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                   </div>
-                                  <div class="form-group col-md-auto">
-                                    <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio">
-                                  </div>
+
+                                  <div class="form-group">
+                                    <textarea class="form-control @error('objectivo') is-invalid @enderror" id="objectivo" name="objectivo" placeholder="objectivo da instituicao" value="{{old('objectivo')}}" name="objectivo"></textarea>
+                                    @error('objectivo')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                  </div> &nbsp;
                                 </div>
                                 <br>
                                 <div class="form-row">
-                                    <div class="form-group bg-dark col-md-12" style="color: white ;padding: 10px 10px">
+                                    <div class="form-group bg-dark col-md-12" style="color: white;padding: 10px 10px">
                                         <span>Credências de Acesso ao Sistema</span>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <x-label for="name" :value="__('Name')" />
-
-                                        <input type="text" class="form-control" id="nome" name="name" placeholder="Nome Usuario" :value="old('name')">
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="nome" name="name" placeholder="Nome Usuario" value="{{old('name')}}">
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-lg-6">
-                                        <x-label for="password" :value="__('Password')" />
-
-                                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Palavra passe" :value="old('password')">
+                                        <input type="password" class="form-control" id="senha" name="password" placeholder="Palavra passe" value="{{old('password')}}">
                                     </div>
-                                    <div class="form-group col-lg-6"> 
-                                        <x-label for="password_confirmation" :value="__('Password_confirm')" />
-
-                                        <input type="password" class="form-control" id="senha" name="password_confirmation" placeholder="Confirmar palavra passe"> 
+                                    <div class="form-group col-lg-6">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="senha" name="password_confirmation" placeholder="Confirmar palavra passe">
+                                         @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror 
                                     </div>
                                 </div>
                                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
@@ -222,8 +283,10 @@
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
                             </form>
 
-                            <form id="fornecedor" method="POST" action="{{ route('register') }}">
+                            <!-- Fornecedor -->
+                            <form id="fornecedor" method="POST" action="{{ route('fornecedor.store') }}">
                                 @csrf
+
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do fornecedor">
@@ -248,6 +311,31 @@
                                   </div>
                                   <div class="form-group col-md-auto">
                                     <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio">
+                                  </div>
+                                  <div class="form-group dropdown">
+                                    <select class="form-control @error('genero') is-invalid @enderror col-12" name="genero">
+                                        <option value="" selected disabled>Selecione o Genero</option>
+                                        <option value="masculino" {{ old('genero') == 'masculino' ? 'selected' : '' }}>Masculino</option>
+                                        <option value="feminino" {{ old('genero') == 'feminino' ? 'selected' : '' }}>Feminino </option>
+                                    </select>
+                                     @error('genero')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                  </div> &nbsp;
+                                
+                                  <div class="form-group">
+                                    <select class="form-control @error('area_actuacao') is-invalid @enderror col-12" name="area_actuacao">
+                                        <option value="" selected disabled>Selecione area de actuação</option>
+                                        <option value="Produtos" {{ old('area_actuacao') == 'Produtos area_actuacao' ? 'selected' : '' }}>Produtos Farmaceuticos</option>
+                                        <option value="Produtos" {{ old('area_actuacao') == 'area_actuacao' ? 'selected' : '' }}>Produtos</option>
+                                    </select>
+                                     @error('genero')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                   </div>
                                 </div>
                                 <br>
@@ -295,6 +383,7 @@
         </div><!--footy-sec end-->
     </div><!--sign-in-page end-->
     </div><!--theme-layout end-->
+
 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript">
