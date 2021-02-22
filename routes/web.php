@@ -22,7 +22,11 @@ Route::get('/index', function () {
     return view('admin/layout');
 });
 
-Route::resource('doador','App\Http\Controllers\DoadorController');
+Route::resource('doador', 'App\Http\Controllers\DoadorController');
+
+Route::resource('instituicao', 'App\Http\Controllers\InstituicaoController');
+
+Route::resource('fornecedor', 'App\Http\Controllers\FornecedorController');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

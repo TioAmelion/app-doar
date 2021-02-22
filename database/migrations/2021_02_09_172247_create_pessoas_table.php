@@ -16,12 +16,14 @@ class CreatePessoasTable extends Migration
         Schema::create('pessoas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');
+            
             $table->string('nome_pessoa', 100);
+            $table->enum('genero', ['masculino', 'feminino']);
             $table->BigInteger('telefone');
             $table->string('provincia', 50);
             $table->string('municipio', 50);
             $table->date('data_nascimento');
-            $table->string('nif',20);
+            $table->string('num_bi', 30);
             $table->timestamps();
         });
     }

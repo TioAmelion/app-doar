@@ -8,13 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class pessoa extends Model
 {
     protected $guarded = ['id'];
+    
     protected $fillable = [
         'usuario_id',
         'nome_pessoa',
         'telefone',
         'provincia',
         'municipio',
-        'data_nascimento','nif'
+        'data_nascimento',
+        'genero',
+        'num_bi'
     ];
     
     use HasFactory;
