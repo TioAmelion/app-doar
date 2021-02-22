@@ -1,3 +1,7 @@
+@extends('admin.layout')
+
+@section('conteudo')
+
 <div class="col-lg-6 col-md-8 no-pd">
 	<div class="main-ws-sec">
 		<div class="post-topbar">
@@ -185,3 +189,5 @@
 		</div><!--posts-section end-->
 	</div><!--main-ws-sec end-->
 </div>
+
+@endsection
