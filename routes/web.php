@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
-
+use App\Http\Controllers\MunicipioController;
+use App\Http\Controllers\ProvinciaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,10 @@ Route::get('/index', function () {
 
 Route::resource('doador', 'App\Http\Controllers\DoadorController');
 
+Route::get('municipio/{id}', [MunicipioController::class, 'getMunicipio']);
+
+Route::get('provincia/{id}', [ProvinciaController::class, 'getProvincia']);
+ 
 Route::resource('instituicao', 'App\Http\Controllers\InstituicaoController');
 
 Route::resource('fornecedor', 'App\Http\Controllers\FornecedorController');

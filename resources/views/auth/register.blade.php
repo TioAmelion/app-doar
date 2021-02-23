@@ -64,35 +64,34 @@
                                     <div class="form-group">
                                         <select class="form-control @error('pais') is-invalid @enderror col-12" name="pais" id="pais"> 
                                         <option selected disabled>Selecione o País</option>
-
-                                        <option value="Angola" {{ old('pais') == 'Angola' ? 'selected' : '' }}>Angola</option> 
-
-                                        <option value="Moçambique" {{ old('pais') == 'feminino' ? 'selected' : '' }}>Moçambique</option>
-
-                                        <option value="Portugal" {{ old('pais') == 'Portugal' ? 'selected' : '' }}>Portugal</option>
-
-                                        <option value="Brasil" {{ old('pais') == 'Brasil' ? 'selected' : '' }}>Brasil</option>
+                                        @foreach($paises as $pais)
+                                        <option value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>
+                                        @endforeach 
                                     </select>
                                      @error('genero')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    </div>
+                                    </div> 
                                 </div>
 
-                                <div class="form-row">
-                                    <div class="form-group col-md-auto" id="p">
-                                        <input type="text" class="form-control @error('provincia') is-invalid @enderror" id="provincia" name="provincia" placeholder="Província" value="{{old('provincia')}}">
-                                        @error('provincia')
+                                <div class="form-row"> 
+                                    <div class="form-group col-lg-3" id="p">
+                                        <select class="form-control @error('provincia') is-invalid @enderror col-12" name="provincia" id="provincia"> 
+                                        <option selected disabled>Selecione a Provincia</option>
+                                        </select>
+                                        @error('provincia') 
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror 
                                     </div>
 
-                                    <div class="form-group col-md-auto" id="m">
-                                        <input type="text" class="form-control @error('municipio') is-invalid @enderror" id="municipio" name="municipio" placeholder="Municipio" value="{{old('municipio')}}">
+                                    <div class="form-group col-lg-3" id="m">
+                                        <select class="form-control @error('municipio') is-invalid @enderror col-12" name="municipio" id="municipio"> 
+                                        <option selected disabled>Selecione a Provincia</option>
+                                        </select>
                                         @error('municipio')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -333,7 +332,6 @@
                                         <input type="date" class="form-control" name="data_nasc" id="data_nasc">
                                     </div>
                                   <div class="form-group col-md-auto">
-                                    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Província">
                                   </div>
                                   <div class="form-group col-md-auto">
                                     <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio">
@@ -416,64 +414,9 @@
 <script type="text/javascript">
     $(document).ready(function(){
 
-        $('#pais').change(function(){
-
-            if(event.currentTarget.value == "Angola"){
-                $('#provincia').show()
-                $('#municipio').show()
-                $('#num_bi').show()
-                $('#p').show()
-                $('#m').show()
-                $('#nb').show()
-
-                $('#telemovel').attr("placeholder", "(+244) 999 999 999")
-                $('#telemovel').mask("(+244) 999-999-999")
-
-            } else if(event.currentTarget.value == "Brasil") {
-                $('#provincia').hide()
-                $('#municipio').hide()
-                $('#num_bi').hide()
-                $('#m').hide()
-                $('#nb').hide()
-                $('#p').hide()
- 
-                $('#telemovel').attr("placeholder", "(+55) 99 99999 9999")
-                $('#telemovel').mask("(+55) 99 99999 9999")
-
-            } else if(event.currentTarget.value == "Portugal") {
-                $('#provincia').hide()
-                $('#municipio').hide()
-                $('#num_bi').hide()
-                $('#p').hide()
-                $('#m').hide()
-                $('#nb').hide()
-
-                $('#telemovel').attr("placeholder", "(+351) 999 999 999")
-                $('#telemovel').mask("(+351) 999 999 999")
-
-            } else if(event.currentTarget.value == "Moçambique") {
-                $('#provincia').hide()
-                $('#municipio').hide()
-                $('#num_bi').hide()
-                $('#p').hide()
-                $('#m').hide()
-                $('#nb').hide()  
-
-                $('#telemovel').attr("placeholder", "(+258) 99 999 9999")
-                $('#telemovel').mask("(+258) 99 999 9999")
-            }  
-                  
-        })
-
         $('#instituicao').hide()
         $('#fornecedor').hide()
     })
-
-    function ango(){
-        
-        
-        // $('#telemovel').mask("(+244) 999-999-999")
-    }
 
     function insti(){
         $('#doador').hide()
@@ -492,6 +435,129 @@
         $('#doador').hide()
         $('#fornecedor').show()
     }   
+</script>
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+        $('select[id="pais"]').on('change',function(){
+            var pais_id = $(this).val();  
+            
+            var option = $('#pais').find(":selected").text();
+                   
+            if(option == "Angola") {
+                $('#provincia').show()
+                $('#municipio').show()
+                $('#num_bi').show()
+                $('#p').show()
+                $('#m').show()
+                $('#nb').show()
+
+                $('#telemovel').attr("placeholder", "(+244) 999 999 999")
+                $('#telemovel').mask("(+244) 999-999-999")
+
+            } else if(option == "Moçambique" ) {
+                $('#provincia').hide() 
+                $('#municipio').hide()
+                $('#num_bi').hide()
+                $('#m').hide()
+                $('#nb').hide()
+                $('#p').hide()
+ 
+                $('#telemovel').attr("placeholder", "(+55) 99 99999 9999")
+                $('#telemovel').mask("(+55) 99 99999 9999")
+
+            } else if(option== "Portugal") {
+                $('#provincia').hide()
+                $('#municipio').hide()
+                $('#num_bi').hide()
+                $('#p').hide()
+                $('#m').hide()
+                $('#nb').hide()
+
+                $('#telemovel').attr("placeholder", "(+351) 999 999 999")
+                $('#telemovel').mask("(+351) 999 999 999")
+
+            } else if(option == "Brasil") {
+                $('#provincia').hide()
+                $('#municipio').hide()
+                $('#num_bi').hide()
+                $('#p').hide()
+                $('#m').hide()
+                $('#nb').hide()  
+ 
+                $('#telemovel').attr("placeholder", "(+258) 99 999 9999")
+                $('#telemovel').mask("(+258) 99 999 9999")
+            }
+
+           if(pais_id)
+           {
+              $.ajax({
+                 url : 'provincia/' +pais_id,
+                 type : "GET",
+                 dataType : "json",
+                 success:function(data)
+                 {
+                    console.log(data);
+                    $('select[name="provincia"]').empty();
+                    $.each(data, function(key, value){ 
+                       $('select[name="provincia"]').append('<option value="'+ key +'">'+ value       +'</option>');
+                    });
+                 }
+              });
+           } 
+           else
+           {
+              $('select[name="state"]').empty();
+           }
+        });
+
+        $('select[id="provincia"]').on('change',function(){
+
+            var option = $('#provincia').find(":selected").text();
+
+            if(option == "Luanda") {
+
+                $('#num_bi').mask("999999999-LA-999")
+
+            } else if(option == "Malanje" ) {
+
+                $('#num_bi').mask("999999999-ML-999")
+
+
+            } else if(option == "") {
+
+                $('#num_bi').mask("999999999-ML-999")
+
+            } else if(event.currentTarget.value == "Brasil") {
+
+                $('#num_bi').mask("999999999-ML-999")
+
+            }
+
+           var provincia_id = jQuery(this).val();
+
+           if(provincia_id)
+           {
+              $.ajax({
+                 url : 'municipio/' +provincia_id,
+                 type : "GET",
+                 dataType : "json",
+                 success:function(data) 
+                 { 
+                    console.log(data); 
+                    $('select[name="municipio"]').empty();
+                    $.each(data, function(key, value){ 
+                       $('select[name="municipio"]').append('<option style="width:100px" value="'+ key +'">'+ value +'</option>');
+                    });
+                 }
+              });
+           } 
+           else
+           {
+              $('select[name="state"]').empty();
+           }
+        });
+    });
 </script>
 <script type="text/javascript" src="assets/js/popper.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
