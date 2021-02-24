@@ -71,9 +71,7 @@
                                             name="pais" id="pais">
                                             <option selected disabled>Selecione o País</option>
                                             @foreach($paises as $pais)
-                                            <option value="{{$pais->id}}"
-                                                {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}
-                                            </option>
+                                            <option value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>
                                             @endforeach
                                         </select>
                                         @error('genero')
@@ -212,10 +210,10 @@
                                     </div>
                                 </div>
                                 <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                                    href="{{ route('login') }}">
+                                    href="{{ route('login') }}" style="color: #E75348">
                                     {{ __('Já tens registro?') }}
                                 </a> &nbsp;
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                <button type="submit" class="btn btn-danger" style="background: #E75348">Cadastrar</button>
                             </form>
 
                             <!-- INSTITUICAO -->
@@ -392,31 +390,23 @@
     <script type="text/javascript">
         var instituicao =  $('#instituicao');
         var doador =  $('#doador')
-        var fornecedor = $('#fornecedor')
 
         var form_atual = ""
 
         $(document).ready(function(){
         
-        if(localStorage.getItem('form_atual') === "fornecedor"){
-            
-            instituicao.hide()
-            doador.hide()
-            fornecedor.show()
+            if(localStorage.getItem('form_atual') === "instituicao"){
+                
+                instituicao.show()
+                doador.hide()
 
-        } else if(localStorage.getItem('form_atual') === "instituicao") { 
+            } else { 
 
-            instituicao.show()
-            doador.hide() 
-            fornecedor.hide()
+                instituicao.hide()
+                doador.show() 
 
-        } else {
-            instituicao.hide()
-            fornecedor.hide()
-        }
-
-        
-    })
+            } 
+        })
 
     function insti(){
 
@@ -424,25 +414,17 @@
         localStorage.setItem('form_atual', form_atual)
 
         doador.hide()
-        fornecedor.hide()
         instituicao.show()
     }
 
     function doa(){
+
         localStorage.removeItem('form_atual');
-        fornecedor.hide()
+
         instituicao.hide()
         doador.show()
     }
 
-    function forn(){ 
-        form_atual = "fornecedor"
-        localStorage.setItem('form_atual', form_atual)
-
-        instituicao.hide()
-        doador.hide()
-        fornecedor.show()
-    }   
     </script>
     <script type="text/javascript">
         $(document).ready(function ()
