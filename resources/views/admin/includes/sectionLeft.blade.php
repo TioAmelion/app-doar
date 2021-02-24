@@ -8,7 +8,7 @@
 					</div>
 				</div><!--username-dt end-->
 				<div class="user-specs">
-					<h3>Lar do Beiral</h3>
+					<h3>{{Auth::user()->name}}</h3>
 				</div>
 			</div><!--user-profile end-->
 			<ul class="user-fw-status">

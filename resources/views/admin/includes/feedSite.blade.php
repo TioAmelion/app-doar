@@ -1,4 +1,8 @@
-<div class="col-lg-6 col-md-8 no-pd">
+@if(Auth::check())
+	<div class="col-lg-6 col-md-6 no-pd">
+@else
+	<div class="col-lg-7 col-md-6 mx-auto">
+@endif
 	<div class="main-ws-sec">
 		<div class="posts-section">
 			<div class="post-bar">

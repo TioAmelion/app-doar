@@ -22,6 +22,8 @@ Route::get('/index', function () {
     return view('admin/layout');
 });
 
+Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
+
 Route::resource('doador', 'App\Http\Controllers\DoadorController');
 
 Route::resource('instituicao', 'App\Http\Controllers\InstituicaoController');

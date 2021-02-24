@@ -11,11 +11,13 @@
                 <div class="container">
                     <div class="main-section-data">
                         <div class="row">
-                            @include('admin.includes.sectionLeft')
-
+                            @auth
+                                @include('admin.includes.sectionLeft')
+                            @endauth
                             @include('admin.includes.feedSite')
-
-                            @include('admin.includes.sectionRigth')
+                            @auth
+                                @include('admin.includes.sectionRigth')
+                            @endauth
                         </div>
                     </div><!-- main-section-data end-->
                 </div> 
