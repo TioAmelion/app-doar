@@ -48,9 +48,28 @@
 							</li>
 						</ul>
 					</nav><!--nav end-->
+					@auth
 					<div class="menu-btn">
 						<a href="#" title=""><i class="fa fa-bars"></i></a>
 					</div><!--menu-btn end-->
+					<div class="user-account">
+						<div class="user-info">
+							<img src="assets/images/resources/user.png" alt="">
+							<a href="#" title="">{{ Auth::user()->name}}</a>
+							<i class="la la-sort-down"></i>
+						</div>
+						<div class="user-account-settingss">
+							<ul class="us-links">
+								<li><a href="#" title="">Account Setting</a></li>
+								<li><a href="#" title="">Privacy</a></li>
+								<li><a href="#" title="">Terms & Conditions</a></li>
+							</ul>
+                        <!-- Authentication -->
+						<h3 class="tc"><a href="/logout" title="">Sair</a></h3>
+						</div><!--user-account-settingss end-->
+					</div>
+					
 				</div><!--header-data end-->
+				@endauth
 			</div>
 		</header>
