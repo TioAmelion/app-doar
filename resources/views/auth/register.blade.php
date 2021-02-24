@@ -33,8 +33,6 @@
                                 <li data-tab="tab-1"><a onclick="doa()" href="#" title="">Doador</a></li>
                                 <li data-tab="tab-1" class="current"><a onclick="insti()" href="#"
                                         title="">Instituição</a></li>
-                                <li data-tab="tab-2" class="current"><a onclick="forn()" href="#"
-                                        title="">Fornecedor</a></li>
                             </ul>
                             <div class="form-row">
                                 @if($errors->any())
