@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(pessoa::class);
     }
+
+    public function publicacao()
+    {
+        return $this->belongsTo(publicacao::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Models\publicacao;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +16,20 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $pub = DB::table('publicacaos')
+    ->join('users','publicacaos.usuario_id', '=','users.id')
+    ->select('users.name','publicacaos.*')->get();
+    return view('welcome')->with('pub',$pub);
 });
 
 Route::get('/index', function () {
     return view('admin/layout');
 });
 
+Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
+
 Route::resource('doador', 'App\Http\Controllers\DoadorController');
+Route::resource('publicar', 'App\Http\Controllers\PublicacaoController')->middleware(['auth']);
 
 Route::resource('instituicao', 'App\Http\Controllers\InstituicaoController');
 
