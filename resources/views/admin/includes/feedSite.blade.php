@@ -1,12 +1,31 @@
-<div class="col-lg-6 col-md-8 no-pd">
+@if(Auth::check())
+	<div class="col-lg-6 col-md-6 no-pd">
+@else
+	<div class="col-lg-7 col-md-6 mx-auto">
+@endif
 	<div class="main-ws-sec">
+		@auth
+		<div class="post-topbar">
+			<div class="user-picy">
+				<img src="assets/images/resources/user-pic.png" alt="">
+			</div>
+			
+			<div class="post-st">
+				<ul>
+					<li><a class="post-jb active" href="#" title="">Em que estás a pensar,{{Auth::user()->name}}?</a></li>
+				</ul>
+			</div><!--post-st end-->
+			
+		</div><!--post-topbar end-->
+		@endauth
 		<div class="posts-section">
+			@foreach($pub as $dados)
 			<div class="post-bar">
 				<div class="post_topbar">
 					<div class="usy-dt">
 						<img src="assets/images/resources/us-pic.png" alt="">
 						<div class="usy-name">
-							<h3>Lar do Beiral</h3>
+							<h3>{{$dados->name}}</h3>
 							<span><img src="assets/images/clock.png" alt="">3 min ago</span>
 						</div>
 					</div>
@@ -31,12 +50,12 @@
 					</ul>
 				</div>
 				<div class="job_descp">
-					<h3>Necessitando de bens alimenticios</h3>
+					<h3>{{$dados->titulo}}</h3>
 					<ul class="job-dt">
 						<!-- <li><a href="#" title="">Full Time</a></li> -->
 						<!-- <li><span>$30 / hr</span></li> -->
 					</ul>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="#" title="">view more</a></p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="#" title="">ver mais</a></p>
 				</div>
 				<div class="job-status-bar">
 					<ul class="like-com">
@@ -49,6 +68,7 @@
 					<a><i class="la la-eye"></i>Visualizou 50</a>
 				</div>
 			</div><!--post-bar end-->
+			@endforeach
 			<div class="top-profiles">
 				<div class="pf-hd" style="background-color: white">
 					<h3>Mas Instituições</h3>
