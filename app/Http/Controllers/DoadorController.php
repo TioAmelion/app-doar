@@ -43,7 +43,7 @@ class DoadorController extends Controller
     {
         $request->validate([
             'nome_doador' => 'required|string|min:5|max:40',
-            'telemovel' => 'required|min:9',
+            'telemovel' => 'required',
             'genero' => 'required',
             'municipio' => 'required|string|max:20',
             'provincia' => 'required|string|min:5|max:20',

@@ -61,17 +61,46 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="tel" class="form-control @error('telemovel') is-invalid @enderror" id="telemovel" name="telemovel" placeholder="Telemóvel" value="{{old('telemovel')}}">
-                                        @error('telemovel')
+                                    <div class="form-group">
+                                        <select class="form-control @error('pais') is-invalid @enderror col-12" name="pais" id="pais"> 
+                                        <option selected disabled>Selecione o País</option>
+
+                                        <option value="Angola" {{ old('pais') == 'Angola' ? 'selected' : '' }}>Angola</option> 
+
+                                        <option value="Moçambique" {{ old('pais') == 'feminino' ? 'selected' : '' }}>Moçambique</option>
+
+                                        <option value="Portugal" {{ old('pais') == 'Portugal' ? 'selected' : '' }}>Portugal</option>
+
+                                        <option value="Brasil" {{ old('pais') == 'Brasil' ? 'selected' : '' }}>Brasil</option>
+                                    </select>
+                                     @error('genero')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-auto" id="p">
+                                        <input type="text" class="form-control @error('provincia') is-invalid @enderror" id="provincia" name="provincia" placeholder="Província" value="{{old('provincia')}}">
+                                        @error('provincia')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror 
+                                    </div>
+
+                                    <div class="form-group col-md-auto" id="m">
+                                        <input type="text" class="form-control @error('municipio') is-invalid @enderror" id="municipio" name="municipio" placeholder="Municipio" value="{{old('municipio')}}">
+                                        @error('municipio')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-sm-4">
+
+                                    <div class="form-group col-sm-4" id="nd">
                                         <input type="text" class="form-control @error('num_bi') is-invalid @enderror" id="num_bi" name="num_bi" placeholder="Número do B.I" value="{{old('num_bi')}}">
                                         @error('num_bi')
                                             <span class="invalid-feedback" role="alert">
@@ -79,6 +108,9 @@
                                             </span>
                                         @enderror
                                     </div>
+                                </div>
+
+                                <div class="form-row">
                                     <div class="form-group col-sm-4">
                                         <input type="date" class="form-control @error('data_nasc') is-invalid @enderror" name="data_nasc" id="data_nasc" value="{{old('data_nasc')}}">
                                         @error('data_nasc')
@@ -87,50 +119,44 @@
                                             </span>
                                         @enderror
                                     </div>
-                                  <div class="form-group col-md-auto">
-                                    <input type="text" class="form-control @error('provincia') is-invalid @enderror" id="provincia" name="provincia" placeholder="Província" value="{{old('provincia')}}">
-                                    @error('provincia')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                  </div>
-                                  <div class="form-group col-md-auto">
-                                    <input type="text" class="form-control @error('municipio') is-invalid @enderror" id="municipio" name="municipio" placeholder="Municipio" value="{{old('municipio')}}">
-                                    @error('municipio')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                  </div>
 
-                                  <div class="form-group">
-                                    <select class="form-control @error('genero') is-invalid @enderror col-12" name="genero">
-                                        <option value="" selected disabled>Selecione o Genero</option>
-                                        <option value="masculino" {{ old('genero') == 'masculino' ? 'selected' : '' }}>Masculino</option>
-                                        <option value="feminino" {{ old('genero') == 'feminino' ? 'selected' : '' }}>Feminino </option>
-                                    </select>
-                                     @error('genero')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                  </div> &nbsp;
-                                  <div class="form-group">
-                                    <select class="form-control @error('tipo_doador') is-invalid @enderror col-12" name="tipo_doador">
-                                        <option value="" selected disabled>Selecione o Tipo de Doador</option>
-                                        <option value="pessoa_fisica" {{ old('tipo_doador') == 'masculino' ? 'selected' : '' }}>Pessoa Fisica</option>
-                                        <option value="pessoa_juridica" {{ old('tipo_doador') == 'feminino' ? 'selected' : '' }}>Pessoa Juridica</option>
-                                    </select>
-                                     @error('genero')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                  </div>
+                                    <div class="form-group col-sm-4">
+                                        <input type="tel" class="form-control @error('telemovel') is-invalid @enderror" id="telemovel" name="telemovel" placeholder="Número de Telefone" value="{{old('telemovel')}}">
+                                        @error('telemovel') 
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                            <select class="form-control @error('genero') is-invalid @enderror col-12" name="genero">
+                                                <option value="" selected disabled>Selecione o Genero</option>
+                                                <option value="masculino" {{ old('genero') == 'masculino' ? 'selected' : '' }}>Masculino</option>
+                                                <option value="feminino" {{ old('genero') == 'feminino' ? 'selected' : '' }}>Feminino </option>
+                                            </select>
+                                            @error('genero')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                             <select class="form-control @error('tipo_doador') is-invalid @enderror col-12" name="tipo_doador">
+                                                <option value="" selected disabled>Selecione o Tipo de Doador</option>
+                                                <option value="pessoa_fisica" {{ old('tipo_doador') == 'masculino' ? 'selected' : '' }}>Pessoa Fisica</option>
+                                                <option value="pessoa_juridica" {{ old('tipo_doador') == 'feminino' ? 'selected' : '' }}>Pessoa Juridica</option>
+                                            </select>
+                                             @error('genero')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </div>
 
                                 </div>
-                                <br>
+
                                 <div class="form-row">
                                     <div class="form-group bg-dark col-md-12" style="color: white;padding: 10px 10px">
                                         <span>Credências de Acesso ao Sistema</span>
@@ -183,7 +209,7 @@
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
-                                            </span>
+                                            </span> 
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-4">
@@ -386,12 +412,68 @@
 
 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.maskedinput.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        
+
+        $('#pais').change(function(){
+
+            if(event.currentTarget.value == "Angola"){
+                $('#provincia').show()
+                $('#municipio').show()
+                $('#num_bi').show()
+                $('#p').show()
+                $('#m').show()
+                $('#nb').show()
+
+                $('#telemovel').attr("placeholder", "(+244) 999 999 999")
+                $('#telemovel').mask("(+244) 999-999-999")
+
+            } else if(event.currentTarget.value == "Brasil") {
+                $('#provincia').hide()
+                $('#municipio').hide()
+                $('#num_bi').hide()
+                $('#m').hide()
+                $('#nb').hide()
+                $('#p').hide()
+ 
+                $('#telemovel').attr("placeholder", "(+55) 99 99999 9999")
+                $('#telemovel').mask("(+55) 99 99999 9999")
+
+            } else if(event.currentTarget.value == "Portugal") {
+                $('#provincia').hide()
+                $('#municipio').hide()
+                $('#num_bi').hide()
+                $('#p').hide()
+                $('#m').hide()
+                $('#nb').hide()
+
+                $('#telemovel').attr("placeholder", "(+351) 999 999 999")
+                $('#telemovel').mask("(+351) 999 999 999")
+
+            } else if(event.currentTarget.value == "Moçambique") {
+                $('#provincia').hide()
+                $('#municipio').hide()
+                $('#num_bi').hide()
+                $('#p').hide()
+                $('#m').hide()
+                $('#nb').hide()  
+
+                $('#telemovel').attr("placeholder", "(+258) 99 999 9999")
+                $('#telemovel').mask("(+258) 99 999 9999")
+            }  
+                  
+        })
+
         $('#instituicao').hide()
         $('#fornecedor').hide()
     })
+
+    function ango(){
+        
+        
+        // $('#telemovel').mask("(+244) 999-999-999")
+    }
 
     function insti(){
         $('#doador').hide()
