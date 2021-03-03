@@ -13,6 +13,6 @@ class PaisSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $pais = ['Angola', 'Brasil', 'Portugal', 'Moçambique'];
     }
 }

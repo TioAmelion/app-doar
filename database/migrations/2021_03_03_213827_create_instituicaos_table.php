@@ -17,14 +17,17 @@ class CreateInstituicaosTable extends Migration
             $table->id();
             $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');
 
+            $table->foreignId('pais_id')->constrained('pais')->onDelete('cascade');
+
+            $table->foreignId('provincia_id')->nullable()->constrained('provincias')->onDelete('cascade');
+
+            $table->foreignId('municipio_id')->nullable()->constrained('municipios')->onDelete('cascade');
+            
             $table->string('nome_instituicao', 50);
             $table->string('sigla', 20);
-            $table->string('direitor', 50);
-            $table->integer('telefone');
-            $table->string('provincia', 50);
-            $table->string('municipio', 50);
+            $table->string('telefone', 0);
             $table->text('objectivo', 250);
-            $table->string('nif', 20); 
+            $table->string('nif', 20);
             $table->timestamps();
         });
     }
