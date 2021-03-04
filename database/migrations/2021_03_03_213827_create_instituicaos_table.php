@@ -25,7 +25,7 @@ class CreateInstituicaosTable extends Migration
             
             $table->string('nome_instituicao', 50);
             $table->string('sigla', 20);
-            $table->string('telefone', 0);
+            $table->string('telefone', 30);
             $table->text('objectivo', 250);
             $table->string('nif', 20);
             $table->timestamps();
