@@ -12,7 +12,7 @@
 			
 			<div class="post-st">
 				<ul>
-					<li><a class="post-jb active" href="#" title="">Em que estás a pensar,{{Auth::user()->name}}?</a></li>
+					<li><a class="post-jb active" href="#" title="">Em que estás a pensar, {{Auth::user()->name}}?</a></li>
 				</ul>
 			</div><!--post-st end-->
 			

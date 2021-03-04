@@ -341,10 +341,10 @@
                                     </div>
                                 </div>
                                 <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                                    href="{{ route('login') }}">
+                                    href="{{ route('login') }}" style="color: #E75348">
                                     {{ __('Já tens registro?') }}
                                 </a> &nbsp;
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                <button type="submit" class="btn btn-danger" style="background: #E75348">Cadastrar</button>
                             </form>
                         </div>
                         <!--post-topbar end-->
