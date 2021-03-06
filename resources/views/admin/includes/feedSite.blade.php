@@ -12,7 +12,7 @@
 			
 			<div class="post-st">
 				<ul>
-					<li><a class="post-jb active" href="#" title="">Em que estás a pensar,{{Auth::user()->name}}?</a></li>
+					<li><a class="post-jb active" href="#" title="">Em que estás a pensar, {{Auth::user()->name}}?</a></li>
 				</ul>
 			</div><!--post-st end-->
 			
@@ -71,7 +71,7 @@
 			@endforeach
 			<div class="top-profiles">
 				<div class="pf-hd" style="background-color: white">
-					<h3>Mas Instituições</h3>
+					<h3>Instituições Precisando de Ajuda</h3>
 					<i class="la la-ellipsis-v"></i>
 				</div>
 				<div class="profiles-slider">

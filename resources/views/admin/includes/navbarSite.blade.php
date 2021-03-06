@@ -40,19 +40,24 @@
 									Fornecedores
 								</a>
 							</li>
-							<li>
-								<a href="{{ route('login') }}" title="">
-									<span><img src="assets/images/icon4.png" alt=""></span>
-									Login
-								</a>
-							</li>
+							@auth
+								<li>
+								</li>
+							@else
+								<li>
+									<a href="{{ route('login') }}" title="">
+										<span><img src="assets/images/icon4.png" alt=""></span>
+										Login
+									</a>
+								</li>
+							@endauth
 						</ul>
 					</nav><!--nav end-->
-					@auth
 					<div class="menu-btn">
 						<a href="#" title=""><i class="fa fa-bars"></i></a>
 					</div><!--menu-btn end-->
-					<div class="user-account">
+					@auth
+						<div class="user-account">
 						<div class="user-info">
 							<img src="assets/images/resources/user.png" alt="">
 							<a href="#" title="">{{ Auth::user()->name}}</a>
@@ -68,8 +73,7 @@
 						<h3 class="tc"><a href="/logout" title="">Sair</a></h3>
 						</div><!--user-account-settingss end-->
 					</div>
-					
+					@endauth
 				</div><!--header-data end-->
-				@endauth
 			</div>
 		</header>

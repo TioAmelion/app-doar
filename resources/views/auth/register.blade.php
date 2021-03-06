@@ -71,10 +71,10 @@
                                             name="pais" id="pais">
                                             <option selected disabled>Selecione o País</option>
                                             @foreach($paises as $pais)
-                                            <option value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>
+                                            <option  value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>
                                             @endforeach
                                         </select>
-                                        @error('genero')
+                                        @error('pais')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -96,12 +96,12 @@
                                     </div>
 
                                     <div class="form-group col-lg-3" id="m">
-                                        <select class="form-control @error('municipio') is-invalid @enderror col-12"
+                                        <select class="form-control @error('municipio') is-invalid @enderror col-12"   
                                             name="municipio" id="municipio">
-                                            <option selected disabled>Selecione a Provincia</option>
+                                            <option selected disabled>Selecione o municipio</option>
                                         </select>
                                         @error('municipio')
-                                        <span class="invalid-feedback" role="alert">
+                                        <spans class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
@@ -131,10 +131,10 @@
                                     </div>
 
                                     <div class="form-group col-sm-4">
-                                        <input type="tel" class="form-control @error('telemovel') is-invalid @enderror"
-                                            id="telemovel" name="telemovel" placeholder="Número de Telefone"
-                                            value="{{old('telemovel')}}">
-                                        @error('telemovel')
+                                        <input type="tel" class="form-control @error('telefone') is-invalid @enderror"
+                                            id="telefone" name="telefone" placeholder="Número de Telefone"
+                                            value="{{old('telefone')}}">
+                                        @error('telefone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -183,17 +183,6 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                            id="nome" name="name" placeholder="Nome Usuario" value="{{old('name')}}">
-                                        @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-row">
                                     <div class="form-group col-lg-6">
                                         <input type="password" class="form-control" id="senha" name="password"
                                             placeholder="Palavra passe" value="{{old('password')}}">
@@ -225,7 +214,7 @@
                                         <input type="text"
                                             class="form-control @error('nome_instituicao') is-invalid @enderror"
                                             id="nome_instituicao" name="nome_instituicao"
-                                            placeholder="Nome Completo da Instituicao"
+                                            placeholder="Nome da Instituicao"
                                             value="{{old('nome_instituicao')}}">
                                         @error('nome_instituicao')
                                         <span class="invalid-feedback" role="alert">
@@ -255,16 +244,6 @@
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
-                                        <input type="text" class="form-control @error('direitor') is-invalid @enderror"
-                                            id="direitor" placeholder="Nome do Direitor" name="direitor"
-                                            value="{{old('direitor')}}">
-                                        @error('direitor')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
                                     <div class="form-group col-sm-4">
                                         <input type="text" class="form-control @error('nif') is-invalid @enderror"
                                             id="nif" name="nif" placeholder="Número do Nif" value="{{old('nif')}}">
@@ -274,21 +253,30 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="tel" class="form-control @error('telemovelI') is-invalid @enderror"
-                                            id="telemovelI" name="telemovelI" placeholder="TelemóvelI"
-                                            value="{{old('telemovelI')}}">
-                                        @error('telemovelI')
+                                    <div class="form-group col-sm-4">
+                                        <!-- <div class="form-group"> -->
+                                        <select class="form-control @error('pais') is-invalid @enderror col-12"
+                                            name="paisI" id="paisI">
+                                            <option selected disabled>Selecione o País</option>
+                                            @foreach($paises as $pais)
+                                                @if($pais->nome_pais == "Angola")
+                                                    <option value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                        @error('genero')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
+                                    <!-- </div> -->
                                     </div>
+
                                     <div class="form-group col-sm-4">
-                                        <input type="text"
-                                            class="form-control @error('provinciaI') is-invalid @enderror"
-                                            id="provinciaI" name="provinciaI" placeholder="Província"
-                                            value="{{old('provinciaI')}}">
+                                        <select class="form-control @error('provinciaI') is-invalid @enderror col-12"
+                                            name="provinciaI" id="provinciaI">
+                                            <option selected disabled>Selecione a Provincia</option>
+                                        </select>
                                         @error('provinciaI')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -297,11 +285,22 @@
                                     </div>
 
                                     <div class="form-group col-md-auto">
-                                        <input type="text"
-                                            class="form-control @error('municipioI') is-invalid @enderror"
-                                            id="municipioI" name="municipioI" placeholder="Municipio"
-                                            value="{{old('municipioI')}}">
+                                        <select class="form-control @error('municipioI') is-invalid @enderror col-12"
+                                            name="municipioI" id="municipioI">
+                                            <option selected disabled>Selecione o municipio</option>
+                                        </select>
                                         @error('municipioI')
+                                        <spans class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <input type="tel" class="form-control @error('telefoneI') is-invalid @enderror"
+                                            id="telefoneI" name="telefoneI" placeholder="Telefone"
+                                            value="{{old('telefoneI')}}">
+                                        @error('telefoneI')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -324,18 +323,7 @@
                                     <div class="form-group bg-dark col-md-12" style="color: white;padding: 10px 10px">
                                         <span>Credências de Acesso ao Sistema</span>
                                     </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                            id="nome" name="name" placeholder="Nome Usuario" value="{{old('name')}}">
-                                        @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
+                                </div> 
                                 <div class="form-row">
                                     <div class="form-group col-lg-6">
                                         <input type="password" class="form-control" id="senha" name="password"
@@ -353,10 +341,10 @@
                                     </div>
                                 </div>
                                 <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                                    href="{{ route('login') }}">
+                                    href="{{ route('login') }}" style="color: #E75348">
                                     {{ __('Já tens registro?') }}
                                 </a> &nbsp;
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                <button type="submit" class="btn btn-danger" style="background: #E75348">Cadastrar</button>
                             </form>
                         </div>
                         <!--post-topbar end-->
@@ -385,28 +373,28 @@
     <!--theme-layout end-->
 
 
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.maskedinput.min.js"></script>
-    <script type="text/javascript">
-        var instituicao =  $('#instituicao');
-        var doador =  $('#doador')
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.maskedinput.min.js"></script>
+<script type="text/javascript">
+    var instituicao =  $('#instituicao');
+    var doador =  $('#doador')
 
-        var form_atual = ""
+    var form_atual = ""
 
-        $(document).ready(function(){
+    $(document).ready(function(){
         
-            if(localStorage.getItem('form_atual') === "instituicao"){
-                
-                instituicao.show()
-                doador.hide()
+        if(localStorage.getItem('form_atual') === "instituicao"){
+            
+            instituicao.show()
+            doador.hide()
 
-            } else { 
+        } else { 
 
-                instituicao.hide()
-                doador.show() 
+            instituicao.hide()
+            doador.show() 
 
-            } 
-        })
+        } 
+    })
 
     function insti(){
 
@@ -424,11 +412,10 @@
         instituicao.hide()
         doador.show()
     }
+</script>
+<script type="text/javascript">
+    $(document).ready(function (){
 
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function ()
-    {
         $('select[id="pais"]').on('change',function(){
             var pais_id = $(this).val();  
             
@@ -442,9 +429,10 @@
                 $('#m').show()
                 $('#nb').show()
 
-                $('#telemovel').attr("placeholder", "(+244) 999 999 999")
-                $('#telemovel').mask("(+244) 999-999-999")
-
+                $('#telefone').attr("placeholder", "(+244) 999 999 999")
+                $('#telefone').mask("(+244) 999-999-999")
+                $('#telefoneI').mask("(+244) 999-999-999")
+ 
             } else if(option == "Moçambique" ) {
                 $('#provincia').hide() 
                 $('#municipio').hide()
@@ -479,8 +467,8 @@
                 $('#telemovel').mask("(+258) 99 999 9999")
             }
 
-           if(pais_id)
-           {
+           if(pais_id){
+
               $.ajax({
                  url : 'provincia/' +pais_id,
                  type : "GET",
@@ -507,20 +495,20 @@
 
             if(option == "Luanda") {
 
-                $('#num_bi').mask("999999999-LA-999")
+                $('#num_bi').mask("999999999LA999")
 
             } else if(option == "Malanje" ) {
 
-                $('#num_bi').mask("999999999-ML-999")
+                $('#num_bi').mask("999999999ML999")
 
 
             } else if(option == "") {
 
-                $('#num_bi').mask("999999999-ML-999")
+                $('#num_bi').mask("999999999ML999")
 
             } else if(event.currentTarget.value == "Brasil") {
 
-                $('#num_bi').mask("999999999-ML-999")
+                $('#num_bi').mask("999999999ML999")
 
             }
 
@@ -547,12 +535,79 @@
               $('select[name="state"]').empty();
            }
         });
+
+        //DADOS DA INSTITUICAO
+        $('select[id="paisI"]').on('change',function(){
+            var Pais_id = $(this).val();  
+            
+            var option = $('#paisI').find(":selected").text();
+                   
+            if(option == "Angola") {
+                $('#provincia').show()
+                $('#municipio').show()
+                $('#num_bi').show()
+                $('#p').show()
+
+                $('#telefoneI').attr("placeholder", "(+244) 999-999-999")
+                $('#telefoneI').mask("(+244) 999-999-999")
+ 
+            }
+
+           if(Pais_id){
+
+              $.ajax({
+                 url : 'provincia/' +Pais_id,
+                 type : "GET",
+                 dataType : "json",
+                 success:function(data)
+                 {
+                    console.log(data);
+                    $('select[name="provinciaI"]').empty();
+                    $.each(data, function(key, value){ 
+                       $('select[name="provinciaI"]').append('<option value="'+ key +'">'+ value+'</option>');
+                    });
+                 }
+              });
+           } 
+           else
+           {
+              $('select[name="state"]').empty();
+           }
+        });
+
+        $('select[id="provinciaI"]').on('change',function(){
+
+            var option = $('#provinciaI').find(":selected").text();
+
+           var Provincia_id = jQuery(this).val();
+
+           if(Provincia_id)
+           {
+              $.ajax({
+                 url : 'municipio/' +Provincia_id,
+                 type : "GET",
+                 dataType : "json",
+                 success:function(data) 
+                 { 
+                    console.log(data); 
+                    $('select[name="municipioI"]').empty();
+                    $.each(data, function(key, value){ 
+                       $('select[name="municipioI"]').append('<option style="width:100px" value="'+ key +'">'+ value +'</option>');
+                    });
+                 }
+              });
+           } 
+           else
+           {
+              $('select[name="state"]').empty();
+           }
+        });
     });
-    </script>
-    <script type="text/javascript" src="assets/js/popper.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/lib/slick/slick.min.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
+</script>
+<script type="text/javascript" src="assets/js/popper.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 <script>
     'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'a2plcpnl0235'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.

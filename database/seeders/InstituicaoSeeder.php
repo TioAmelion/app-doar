@@ -13,6 +13,6 @@ class InstituicaoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $provincias = ['Luanda', 'Benguela', 'Malanje'];
     }
 }

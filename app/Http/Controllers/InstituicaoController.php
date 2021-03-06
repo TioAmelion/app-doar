@@ -14,23 +14,23 @@ class InstituicaoController extends Controller
 {
      public function store(Request $request)
      {
+        // dd($request->all());
 
         $request->validate([
             'nome_instituicao' => 'required|string|min:5|max:40',
-            'sigla' => 'required|string|min:2|max:14',
-            'direitor' => 'required|string|min:3|max:40',
-            'telemovelI' => 'required|min:9',
+            'sigla' => 'required|string|min:2|max:10',
+            'telefoneI' => 'required|min:9',
+            'paisI' => 'required|string|max:20',
             'municipioI' => 'required|string|max:20',
-            'provinciaI' => 'required|string|min:5|max:20',
+            'provinciaI' => 'required|string|max:20',
             'objectivo' => 'required|string|min:10|max:100',
             'nif' => 'required||string',
-            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
         ]);
 
         Auth::login($user = User::create([
-            'name' => $request->name,
+            'name' => $request->nome_instituicao,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]));
@@ -39,11 +39,11 @@ class InstituicaoController extends Controller
             'usuario_id' => $user->id,
             'nome_instituicao' => $request->get('nome_instituicao'),
             'sigla' => $request->get('sigla'),
-            'telefone' => $request->get('telemovelI'),
-            'direitor' => $request->get('direitor'),
+            'telefone' => $request->get('telefoneI'),
+            'pais_id' => $request->get('paisI'),
             'objectivo' => $request->get('objectivo'),
-            'municipio' => $request->get('municipioI'), 
-            'provincia' => $request->get('provinciaI'),
+            'municipio_id' => $request->get('municipioI'), 
+            'provincia_id' => $request->get('provinciaI'),
             'nif' => $request->get('nif')
         ]);
 
