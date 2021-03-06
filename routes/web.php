@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\MunicipioController;
+use App\Http\Controllers\ProvinciaController;
 use App\Models\publicacao;
 
 /*
@@ -31,6 +33,10 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@
 Route::resource('doador', 'App\Http\Controllers\DoadorController');
 Route::resource('publicar', 'App\Http\Controllers\PublicacaoController')->middleware(['auth']);
 
+Route::get('municipio/{id}', [MunicipioController::class, 'getMunicipio']);
+
+Route::get('provincia/{id}', [ProvinciaController::class, 'getProvincia']);
+ 
 Route::resource('instituicao', 'App\Http\Controllers\InstituicaoController');
 
 Route::resource('fornecedor', 'App\Http\Controllers\FornecedorController');

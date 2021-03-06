@@ -41,22 +41,22 @@ class DoadorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+
+        $request->validate([ 
             'nome_doador' => 'required|string|min:5|max:40',
-            'telemovel' => 'required',
-            'genero' => 'required',
-            'municipio' => 'required|string|max:20',
-            'provincia' => 'required|string|min:5|max:20',
-            'num_bi' => 'required|string|min:10|max:20',
+            'telefone' => 'required',
+            'genero' => 'required|string',
+            'pais' => 'required|string',
+            // 'provincia' => 'required|string',
+            // 'municipio' => 'required|string',
             'data_nasc' => 'required|date',
-            'tipo_doador' => 'required',
-            'name' => 'required|string|max:255',
+            'tipo_doador' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
         ]);
 
         Auth::login($user = User::create([
-            'name' => $request->name,
+            'name' => $request->nome_doador,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]));
@@ -64,12 +64,13 @@ class DoadorController extends Controller
         $pessoa = pessoa::create([ 
             'usuario_id' => $user->id,
             'nome_pessoa' => $request->get('nome_doador'),
-            'genero' => $request->get('genero'),
-            'telefone' => $request->get('telemovel'),
+            'genero' => $request->get('genero'), 
+            'telefone' => $request->get('telefone'),
             'num_bi' => $request->get('num_bi'),
             'data_nascimento' => $request->get('data_nasc'),
-            'municipio' => $request->get('municipio'),
-            'provincia' => $request->get('provincia')
+            'pais_id' => $request->get('pais'),
+            'provincia_id' => $request->get('provincia'),
+            'municipio_id' => $request->get('municipio'),
         ]);
 
         doador::create([
