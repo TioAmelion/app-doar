@@ -59,6 +59,42 @@
 				<a href="#" title="Fechar"><i class="la la-times-circle-o"></i></a>
 			</div><!--post-project end-->
 		</div><!--post-project-popup end-->
+
+		<div class="post-popup pst-pj">
+			<div class="post-project">
+				<h3>Faça a Sua Doação</h3>
+				<div class="post-project-fields">
+                    <form action="/publicar" method="POST">
+                    @csrf
+						<div class="row">
+							<div class="col-lg-12">
+								<input type="text" id="titulo" name="titulo" placeholder="O que pretende doar">
+							</div>
+							<div class="col-lg-12">
+								<div class="inp-field">
+									<select name="classificacao">
+										<option>Categorias</option>
+										<option value="urgencia">Produtos Alimenticios</option>
+										<option value="nao_urgencia">Roupas</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<input type="number" id="qtd" name="qtd" placeholder="Quantidade do item">
+
+							</div>
+							<div class="col-lg-12">
+								<ul>
+									<li><button class="active" type="submit" value="post">Publicar</button></li>
+									<li><a href="#" title="">Voltar</a></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div><!--post-project-fields end-->
+				<a href="#" title="Fechar"><i class="la la-times-circle-o"></i></a>
+			</div>
+		</div>
         @endauth
     </div><!--theme-layout end-->
     @include('admin.includes.script')

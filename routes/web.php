@@ -28,6 +28,10 @@ Route::get('/index', function () {
     return view('admin/layout');
 });
 
+Route::get('/perfil', function () {
+    return view('auth/profile');
+});
+
 Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
 
 Route::resource('doador', 'App\Http\Controllers\DoadorController');

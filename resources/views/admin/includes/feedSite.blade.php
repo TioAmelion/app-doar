@@ -32,30 +32,13 @@
 					<div class="ed-opts">
 						<a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
 						<ul class="ed-options">
-							<li><a href="#" title="">Edit Post</a></li>
-							<li><a href="#" title="">Unsaved</a></li>
-							<li><a href="#" title="">Unbid</a></li>
-							<li><a href="#" title="">Close</a></li>
-							<li><a href="#" title="">Hide</a></li>
+							<li><a href="#" title="">Editar Publicacão</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="epi-sec">
-					<ul class="descp">
-						<li><img src="images/icon8.png" alt=""><span>India</span></li>
-					</ul>
-					<ul class="bk-links">
-						<!-- <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-						<li><a href="#" title=""><i class="la la-envelope"></i></a></li> -->
-					</ul>
-				</div>
 				<div class="job_descp">
 					<h3>{{$dados->titulo}}</h3>
-					<ul class="job-dt">
-						<!-- <li><a href="#" title="">Full Time</a></li> -->
-						<!-- <li><span>$30 / hr</span></li> -->
-					</ul>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="#" title="">ver mais</a></p>
+					<p>{{$dados->texto}} </p>
 				</div>
 				<div class="job-status-bar">
 					<ul class="like-com">
@@ -63,7 +46,7 @@
 							<a href="#"><i class="la la-heart"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</a>
 							<span>25</span>
 						</li> 
-						<li><a href="#" title="" class="com"><img src="assets/images/com.png" alt=""> Commentarios 15</a></li>
+						<li><a href="#" title="" class="com post_project"><img src="assets/images/com.png" alt=""> Doar</a></li>
 					</ul>
 					<a><i class="la la-eye"></i>Visualizou 50</a>
 				</div>
