@@ -75,8 +75,9 @@
                                                         <input type="checkbox" name="cc" id="c1">
                                                         <label for="c1">
                                                             <span></span>
+                                                            <a href="{{('register')}}"></a>
                                                         </label>
-                                                        <small>{{ __('Lembrar-me') }}</small>
+                                                        <small>{{ __('Cadastra-se') }}</small>
                                                     </div><!--fgt-sec end-->
                                                     @if (Route::has('password.request'))
                                                         <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
@@ -91,10 +92,10 @@
                                         </div>
                                     </form>
                                     <div class="login-resources">
-                                        <h4>Login Via Social Account</h4>
+                                        <h4>Login Via Rede Social</h4>
                                         <ul>
-                                            <li><a href="#" title="" class="fb"><i class="fa fa-facebook"></i>Login Via Facebook</a></li>
-                                            <li><a href="#" title="" class="tw"><i class="fa fa-twitter"></i>Login Via Twitter</a></li>
+                                            <li><a href="#" title="" class="fb"><i class="fa fa-facebook"></i>Facebook</a></li>
+                                            <li><a href="#" title="" class="tw"><i class="fa fa-twitter"></i>Twitter</a></li>
                                         </ul>
                                     </div><!--login-resources end-->
                                 </div><!--sign_in_sec end-->     

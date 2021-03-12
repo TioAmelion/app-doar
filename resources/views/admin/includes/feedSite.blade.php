@@ -1,5 +1,5 @@
 @if(Auth::check())
-	<div class="col-lg-6 col-md-6 no-pd">
+<div class="col-lg-6 col-md-6 no-pd">
 @else
 	<div class="col-lg-7 col-md-6 mx-auto">
 @endif
@@ -42,7 +42,7 @@
 				</div>
 				<div class="epi-sec">
 					<ul class="descp">
-						<li><img src="images/icon8.png" alt=""><span>India</span></li>
+						<li><img src="images/icon8.png" alt=""><span>Luanda</span></li>
 					</ul>
 					<ul class="bk-links">
 						<!-- <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -128,3 +128,7 @@
 		</div><!--posts-section end-->
 	</div><!--main-ws-sec end-->
 </div>
+
+<script src="">
+	
+</script>

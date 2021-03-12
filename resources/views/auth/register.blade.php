@@ -347,7 +347,6 @@
                                 <button type="submit" class="btn btn-danger" style="background: #E75348">Cadastrar</button>
                             </form>
                         </div>
-                        <!--post-topbar end-->
                     </div>
                 </div>
             </center>
@@ -416,6 +415,7 @@
 <script type="text/javascript">
     $(document).ready(function (){
 
+        
         $('select[id="pais"]').on('change',function(){
             var pais_id = $(this).val();  
             
@@ -478,7 +478,7 @@
                     console.log(data);
                     $('select[name="provincia"]').empty();
                     $.each(data, function(key, value){ 
-                       $('select[name="provincia"]').append('<option value="'+ key +'">'+ value       +'</option>');
+                       $('select[name="provincia"]').append('<option value="'+ key +'">'+ value+'</option>');
                     });
                  }
               });

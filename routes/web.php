@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\ProvinciaController;
+use App\Http\Controllers\PublicacaoController;
 use App\Models\publicacao;
 
 /*
@@ -19,14 +20,20 @@ use App\Models\publicacao;
 
 Route::get('/', function () {
     $pub = DB::table('publicacaos')
-    ->join('users','publicacaos.usuario_id', '=','users.id')
-    ->select('users.name','publicacaos.*')->get();
-    return view('welcome')->with('pub',$pub);
+        ->join('users', 'publicacaos.usuario_id', '=', 'users.id')
+        ->select('users.name', 'publicacaos.*')->get();
+    return view('welcome')->with('pub', $pub);
 });
 
 Route::get('/index', function () {
     return view('admin/layout');
 });
+
+Route::get('/ajax-toastr', function(){
+    return view('toastr');
+})->middleware(['auth']);
+
+Route::post('/todos/create', [App\Http\Controllers\TodoController::class, 'store']);
 
 Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
 
@@ -36,7 +43,7 @@ Route::resource('publicar', 'App\Http\Controllers\PublicacaoController')->middle
 Route::get('municipio/{id}', [MunicipioController::class, 'getMunicipio']);
 
 Route::get('provincia/{id}', [ProvinciaController::class, 'getProvincia']);
- 
+
 Route::resource('instituicao', 'App\Http\Controllers\InstituicaoController');
 
 Route::resource('fornecedor', 'App\Http\Controllers\FornecedorController');
@@ -45,4 +52,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

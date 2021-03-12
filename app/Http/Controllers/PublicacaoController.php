@@ -37,15 +37,38 @@ class PublicacaoController extends Controller
      */
     public function store(Request $request)
     {
-        publicacao::create([
-            'usuario_id' => Auth::user()->id,
-            'titulo' => $request->get('titulo'),
-            'classificacao' => $request->get('classificacao'),
-            'texto' => $request->get('texto')
-        ]);
+        
+        $request->validate([
+            'titulo'       => 'required|max:255',
+            'classificacao' => 'required',
+            'descricao' => 'required'
+          ]);
+    
+          $post = publicacao::create([
+                    'usuario_id' => Auth::user()->id,
+                    'titulo' => $request->titulo,
+                    'classificacao' => $request->classificacao,
+                    'texto' => $request->descricao
+                  ]);
+    
+          return response()->json(['message'=>'Post Created successfully','data' => $post]);
+    
+      }
+    //     $request->validate([
+    //         'titulo' => 'required',
+    //         'classificacao' => 'required'
+    //     ]);
 
-        return redirect(RouteServiceProvider::HOME);
-    }
+    //     $dados = publicacao::create([
+    //         'usuario_id' => Auth::user()->id,
+    //         'titulo' => $request->get('titulo'),
+    //         'classificacao' => $request->get('classificacao'),
+    //         'texto' => $request->get('texto')
+    //     ]);
+        
+    //     return Response()->json(['dados' => $dados, 'mensagem' => 'Publicação Concluída com Sucesso']);
+    //     // return redirect(RouteServiceProvider::HOME);
+    // }
 
     /**
      * Display the specified resource.
