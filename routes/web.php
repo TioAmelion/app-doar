@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use App\Models\User;
 use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\ProvinciaController;
@@ -18,10 +19,17 @@ use App\Models\publicacao;
 */
 
 Route::get('/', function () {
+    $sectionLeft = 'admin.includes.sectionLeft';
+    $pagina = 'admin.includes.feedSite';
     $pub = DB::table('publicacaos')
     ->join('users','publicacaos.usuario_id', '=','users.id')
     ->select('users.name','publicacaos.*')->get();
-    return view('welcome')->with('pub',$pub);
+    return view('welcome',['sectionLeft' => $sectionLeft,'corpo' => $pagina])->with('pub',$pub);
+});
+
+Route::get('/instituicoes',function(){
+    $pagina = 'admin.includes.all_instituicoes';
+    return view('welcome',['corpo' => $pagina]);
 });
 
 Route::get('/index', function () {

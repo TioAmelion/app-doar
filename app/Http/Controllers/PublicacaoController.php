@@ -6,6 +6,7 @@ use App\Models\publicacao;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PublicacaoController extends Controller
 {
@@ -41,7 +42,8 @@ class PublicacaoController extends Controller
             'usuario_id' => Auth::user()->id,
             'titulo' => $request->get('titulo'),
             'classificacao' => $request->get('classificacao'),
-            'texto' => $request->get('texto')
+            'texto' => $request->get('texto'),
+            'tempo' => Carbon::now()
         ]);
 
         return redirect(RouteServiceProvider::HOME);

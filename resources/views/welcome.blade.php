@@ -12,9 +12,11 @@
                     <div class="main-section-data">
                         <div class="row">
                             @auth
-                                @include('admin.includes.sectionLeft')
+								@isset($sectionLeft)
+									@include($sectionLeft)
+								@endisset
                             @endauth
-                            @include('admin.includes.feedSite')
+                            @include($corpo)
                             @guest
                                 @include('admin.includes.sectionRigth')
                             @endguest

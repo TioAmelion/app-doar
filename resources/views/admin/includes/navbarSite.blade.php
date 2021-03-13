@@ -13,13 +13,13 @@
 					<nav>
 						<ul>
 							<li>
-								<a href="#" title="">
+								<a href="/" title="">
 									<span><img src="assets/images/icon1.png" alt=""></span>
 									Home
 								</a>
 							</li>
 							<li>
-								<a href="#" title="">
+								<a href="/instituicoes" title="">
 									<span><img src="assets/images/icon2.png" alt=""></span>
 									Instituições
 								</a>

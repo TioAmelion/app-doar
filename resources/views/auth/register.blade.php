@@ -476,9 +476,9 @@
                  success:function(data)
                  {
                     console.log(data);
-                    $('select[name="provincia"]').empty();
+                    $('select[name="provincia"]');
                     $.each(data, function(key, value){ 
-                       $('select[name="provincia"]').append('<option value="'+ key +'">'+ value       +'</option>');
+                       $('select[name="provincia"]').append('<option value="'+ key +'">'+value+'</option>');
                     });
                  }
               });
@@ -523,7 +523,7 @@
                  success:function(data) 
                  { 
                     console.log(data); 
-                    $('select[name="municipio"]').empty();
+                    $('select[name="municipio"]');
                     $.each(data, function(key, value){ 
                        $('select[name="municipio"]').append('<option style="width:100px" value="'+ key +'">'+ value +'</option>');
                     });
