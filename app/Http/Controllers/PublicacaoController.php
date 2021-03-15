@@ -6,6 +6,7 @@ use App\Models\publicacao;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
+use Validator;
 
 class PublicacaoController extends Controller
 {
@@ -37,15 +38,33 @@ class PublicacaoController extends Controller
      */
     public function store(Request $request)
     {
-        publicacao::create([
-            'usuario_id' => Auth::user()->id,
-            'titulo' => $request->get('titulo'),
-            'classificacao' => $request->get('classificacao'),
-            'texto' => $request->get('texto')
-        ]);
+        $validacao = array(
+            'titulo'       => 'required|min:10|max:50',
+            'classificacao' => 'required',
+            'descricao' => 'required'
+            // 'imagem' => 'image|max:2048'
+            ); 
 
-        return redirect(RouteServiceProvider::HOME);
-    }
+        $erro = Validator::make($request->all(), $validacao);
+
+        if ($erro->fails()) {
+            return response()->json(['erro' => $erro->errors()->all()]);
+        }
+
+        // $image    = $request->file('imagem');
+        // $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        // $image->move(public_path('images'), $new_name);
+    
+        $post = publicacao::create([
+            'usuario_id' => Auth::user()->id,
+            'titulo' => $request->titulo,
+            'classificacao' => $request->classificacao,
+            'texto' => $request->descricao
+        ]);
+    
+        return response()->json(['mensagem'=>'Pubicação realizada com sucesso','data' => $post]);
+    
+      }
 
     /**
      * Display the specified resource.

@@ -1,5 +1,5 @@
 @if(Auth::check())
-	<div class="col-lg-6 col-md-6 no-pd">
+<div class="col-lg-6 col-md-6 no-pd">
 @else
 	<div class="col-lg-7 col-md-6 mx-auto">
 @endif
@@ -36,6 +36,15 @@
 						</ul>
 					</div>
 				</div>
+				<div class="epi-sec">
+					<ul class="descp">
+						<li><img src="images/icon8.png" alt=""><span>Luanda</span></li>
+					</ul>
+					<ul class="bk-links">
+						<!-- <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
+						<li><a href="#" title=""><i class="la la-envelope"></i></a></li> -->
+					</ul>
+				</div>
 				<div class="job_descp">
 					<h3>{{$dados->titulo}}</h3>
 					<p>{{$dados->texto}} </p>
@@ -46,7 +55,7 @@
 							<a href="#"><i class="la la-heart"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</a>
 							<span>25</span>
 						</li> 
-						<li><a href="#" title="" class="com post_project"><img src="assets/images/com.png" alt=""> Doar</a></li>
+						<li><a href="#" title="" id="{{$dados->usuario_id}}" class="com post_project"><img src="assets/images/com.png" alt=""> Doar</a></li>
 					</ul>
 					<a><i class="la la-eye"></i>Visualizou 50</a>
 				</div>
@@ -111,3 +120,6 @@
 		</div><!--posts-section end-->
 	</div><!--main-ws-sec end-->
 </div>
+
+<script src="">
+</script>

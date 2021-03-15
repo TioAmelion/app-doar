@@ -15,10 +15,12 @@ class CreateDoacaosTable extends Migration
     {
         Schema::create('doacaos', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantidade');
+            $table->string('descricao');
+            $table->integer('quantidade'); 
             $table->date('data');
-            $table->foreignId('doador_id')->constrained('doadors')->onDelete('cascade');
-            $table->foreignId('instituicao_id')->constrained('instituicaos')->onDelete('cascade');
+
+            $table->foreignId('doador_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('instituicao_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

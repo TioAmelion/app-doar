@@ -272,7 +272,7 @@
                                     <!-- </div> -->
                                     </div>
 
-                                    <div class="form-group col-sm-4">
+                                    <div class="form-group col-lg-3">
                                         <select class="form-control @error('provinciaI') is-invalid @enderror col-12"
                                             name="provinciaI" id="provinciaI">
                                             <option selected disabled>Selecione a Provincia</option>
@@ -347,7 +347,6 @@
                                 <button type="submit" class="btn btn-danger" style="background: #E75348">Cadastrar</button>
                             </form>
                         </div>
-                        <!--post-topbar end-->
                     </div>
                 </div>
             </center>
@@ -382,7 +381,7 @@
     var form_atual = ""
 
     $(document).ready(function(){
-        
+         
         if(localStorage.getItem('form_atual') === "instituicao"){
             
             instituicao.show()
@@ -416,6 +415,7 @@
 <script type="text/javascript">
     $(document).ready(function (){
 
+        
         $('select[id="pais"]').on('change',function(){
             var pais_id = $(this).val();  
             
@@ -441,8 +441,8 @@
                 $('#nb').hide()
                 $('#p').hide()
  
-                $('#telemovel').attr("placeholder", "(+55) 99 99999 9999")
-                $('#telemovel').mask("(+55) 99 99999 9999")
+                $('#telefone').attr("placeholder", "(+55) 99 99999 9999")
+                $('#telefone').mask("(+55) 99 99999 9999")
 
             } else if(option== "Portugal") {
                 $('#provincia').hide()
@@ -452,8 +452,8 @@
                 $('#m').hide()
                 $('#nb').hide()
 
-                $('#telemovel').attr("placeholder", "(+351) 999 999 999")
-                $('#telemovel').mask("(+351) 999 999 999")
+                $('#telefone').attr("placeholder", "(+351) 999 999 999")
+                $('#telefone').mask("(+351) 999 999 999")
 
             } else if(option == "Brasil") {
                 $('#provincia').hide()
@@ -463,8 +463,8 @@
                 $('#m').hide()
                 $('#nb').hide()  
  
-                $('#telemovel').attr("placeholder", "(+258) 99 999 9999")
-                $('#telemovel').mask("(+258) 99 999 9999")
+                $('#telefone').attr("placeholder", "(+258) 99 999 9999")
+                $('#telefone').mask("(+258) 99 999 9999")
             }
 
            if(pais_id){
@@ -478,7 +478,7 @@
                     console.log(data);
                     $('select[name="provincia"]').empty();
                     $.each(data, function(key, value){ 
-                       $('select[name="provincia"]').append('<option value="'+ key +'">'+ value       +'</option>');
+                       $('select[name="provincia"]').append('<option value="'+ key +'">'+ value+'</option>');
                     });
                  }
               });
@@ -500,16 +500,6 @@
             } else if(option == "Malanje" ) {
 
                 $('#num_bi').mask("999999999ML999")
-
-
-            } else if(option == "") {
-
-                $('#num_bi').mask("999999999ML999")
-
-            } else if(event.currentTarget.value == "Brasil") {
-
-                $('#num_bi').mask("999999999ML999")
-
             }
 
            var provincia_id = jQuery(this).val();

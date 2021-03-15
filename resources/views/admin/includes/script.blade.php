@@ -5,4 +5,5 @@
 <script type="text/javascript" src="assets/lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="assets/js/scrollbar.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
-<!-- <script type="text/javascript" src="assets/js/disabled.js"></script> -->
+
+<script type="text/javascript" src="assets/js/toastr.min.js"></script>

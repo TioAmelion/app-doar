@@ -8,6 +8,6 @@ class PaisController extends Controller
     public function getPais()
     {
     	$paises = pais::all()->pluck('id', 'nome_pais'); 
-    	return view('auth.register', ['pais' => $paises])
+    	return view('auth.register', ['pais' => $paises]);
     }
 }
