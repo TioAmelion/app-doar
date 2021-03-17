@@ -12,6 +12,6 @@ class instituicao extends Model
     protected $guardad = [ 'id' ];
 
     protected $fillable = [
-    	'usuario_id', 'nome_instituicao', 'sigla', 'direitor', 'telefone', 'provincia', 'municipio', 'objectivo', 'nif'
+    	'usuario_id', 'pais_id', 'provincia_id', 'municipio_id', 'nome_instituicao', 'sigla', 'telefone', 'objectivo', 'nif'
     	];
 }

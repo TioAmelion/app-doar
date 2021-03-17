@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class InstituicaoSeeder extends Seeder
+class ProvinciaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class InstituicaoSeeder extends Seeder
      */
     public function run()
     {
-        $provincias = ['Luanda', 'Benguela', 'Malanje'];
+        //
     }
 }
