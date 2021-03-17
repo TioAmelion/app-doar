@@ -10,6 +10,7 @@ $(window).on("load", function() {
         $(".wrapper").addClass("overlay");
         return false;
     });
+    
     $(".post-project > a").on("click", function(){
         $(".post-popup.pst-pj").removeClass("active");
         $(".wrapper").removeClass("overlay");
