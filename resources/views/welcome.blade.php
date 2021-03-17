@@ -35,22 +35,25 @@
 
 						<div class="row">
 							<div class="col-lg-12">
-								<input type="text" id="titulo" name="titulo" placeholder="Título">
+								<input type="text" class="text-ligth" id="titulo" name="titulo" placeholder="Título">
 								<span id="tituloError" style="color: red"></span>
 							</div>
 							<div class="col-lg-12">
 								<div class="inp-field">
 									<br>
-									<select id="classificacao" name="classificacao">
-										<option selected>Classificação</option>
-										<option value="urgencia">Urgência</option>
-										<option value="nao_urgencia">Não urgência</option>
+									<select class="text-ligth" id="classificacao" name="classificacao">
+										<option selected>Selecione uma Necessidade</option>
+										<option class="alimentos" value="Produtos Alimenticios">Produtos Alimenticios</option>
+										<option value="Produtos de Higiene">Produtos de Higiene</option>
+										<option value="Medicamentos">Medicamentos</option>
+										<option value="Electrodomésticos">Electrodomésticos</option>
+										<option value="Roupas">Roupas</option>
 									</select>
 									<span id="classificacaoError" style="color: red"></span>
 								</div>
 							</div>
 							<div class="col-lg-12">
-								<textarea name="descricao" id="descricao" placeholder="Descrição"></textarea>
+								<textarea class="text-dark" name="descricao" id="descricao" placeholder="Descrição"></textarea>
 								<span id="descricaoError" style="color: red"></span>
 							</div>
 							<div class="col-lg-12">
@@ -113,8 +116,13 @@
 		</div>
         @endauth
 	<!--theme-layout end-->
-	@include('admin.includes.script')
-
+	{{-- @include('admin.includes.script') --}}
+	<script>
+		$(function () {
+			$('.alimentos').css('background-image', 'url(assets/images/vegetable.svg)');
+			$('.alimentos').css('visibility', 'visible');
+		});
+	</script>
 	<script>
 		$('#publicar').on('click', function(element){
 			element.preventDefault();

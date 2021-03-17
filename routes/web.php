@@ -8,17 +8,11 @@ use App\Http\Controllers\PublicacaoController;
 use App\Http\Controllers\DoacaoController;
 use App\Models\publicacao;
 
-Route::get('/', function () {
-    $pub = DB::table('publicacaos')
-        ->join('users', 'publicacaos.usuario_id', '=', 'users.id')
-        ->select('users.name', 'publicacaos.*')->get();
-    return view('welcome')->with('pub', $pub);
-});
+Route::resource('/', 'App\Http\Controllers\PublicacaoController');
 
 Route::get('/index', function () {
     return view('admin/layout');
 });
-
 
 Route::get('/perfil', function () {
     return view('auth/profile');

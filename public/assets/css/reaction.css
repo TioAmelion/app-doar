@@ -84,3 +84,9 @@ label {
     opacity: 1;
 }
 
+.post-jb > img{
+    position: relative;
+    left: -6px;
+    top: 10px;
+}
+

@@ -12,7 +12,13 @@
 			
 			<div class="post-st">
 				<ul>
-					<li><a class="post-jb active" href="#" title="">Em que estás a pensar, {{Auth::user()->name}}?</a></li>
+					@foreach ($idPessoas as $idPessoa)
+						@if (Auth::user()->id == $idPessoa->id)
+							<li><a class="post-jb active" href="#" title=""><img src="assets/images/tap.svg" height="18px"> Doe um item</a></li>
+						@else
+							<li><a class="post-jb active" href="#" title=""><img src="assets/images/tap.svg" height="18px"> Publique uma Necessidade</a></li>
+						@endif
+					@endforeach
 				</ul>
 			</div><!--post-st end-->
 			
@@ -35,10 +41,10 @@
 							<li><a href="#" title="">Editar Publicacão</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> 
 				<div class="epi-sec">
 					<ul class="descp">
-						<li><img src="images/icon8.png" alt=""><span>Luanda</span></li>
+						<li><img src="images/icon8.png" alt=""><span>{{$dados->classificacao}}</span></li>
 					</ul>
 					<ul class="bk-links">
 						<!-- <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -68,7 +74,7 @@
 									<img class="" name="mais urgente" src="assets/images/reactions_sad.png" alt="">
 								</div>
 							</div>
-						</li> 
+						</li>
 						<li><a href="#" title="" id="{{$dados->usuario_id}}" nomeInst= "{{$dados->name}}" class="com post_project"><img src="assets/images/heart.svg" height="18px"></a></li>
 						<li> </li>
 					</ul>
