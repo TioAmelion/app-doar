@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\publicacao;
+use App\Models\pessoa;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
+use Validator;
+use DB;
 
 class PublicacaoController extends Controller
 {
@@ -16,7 +19,12 @@ class PublicacaoController extends Controller
      */
     public function index()
     {
-        //
+        $idPessoas = pessoa::all();
+        
+        $pub = DB::table('publicacaos')
+            ->join('users', 'publicacaos.usuario_id', '=', 'users.id')
+            ->select('users.name', 'publicacaos.*')->get();
+        return view('welcome')->with(['pub'=> $pub, 'idPessoas' => $idPessoas]);
     }
 
     /**
@@ -37,14 +45,31 @@ class PublicacaoController extends Controller
      */
     public function store(Request $request)
     {
-        publicacao::create([
+        $validacao = array(
+            'titulo'       => 'required|max:50',
+            'classificacao' => 'required',
+            'descricao' => 'required'
+            // 'imagem' => 'image|max:2048'
+        );
+
+        $erro = Validator::make($request->all(), $validacao);
+
+        if ($erro->fails()) {
+            return response()->json(['erro' => $erro->errors()->all()]);
+        }
+
+        // $image    = $request->file('imagem');
+        // $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        // $image->move(public_path('images'), $new_name);
+
+        $post = publicacao::create([
             'usuario_id' => Auth::user()->id,
-            'titulo' => $request->get('titulo'),
-            'classificacao' => $request->get('classificacao'),
-            'texto' => $request->get('texto')
+            'titulo' => $request->titulo,
+            'classificacao' => $request->classificacao,
+            'texto' => $request->descricao
         ]);
 
-        return redirect(RouteServiceProvider::HOME);
+        return response()->json(['mensagem' => 'Pubicação realizada com sucesso', 'data' => $post]);
     }
 
     /**
@@ -56,7 +81,7 @@ class PublicacaoController extends Controller
     public function show($id)
     {
         $pub = publicacao::all();
-        return view('welcome')->with('pub',$pub);
+        return view('welcome')->with('pub', $pub);
     }
 
     /**

@@ -32,12 +32,10 @@
 								<i class="la la-dollar"></i>
 							</div>
 						</div>
-<<<<<<< HEAD
 					</form>
 				</div><!--post-project-fields end-->
 				<a href="#" title=""><i class="la la-times-circle-o"></i></a>
 			</div><!--post-project end-->
-=======
 					</div>
 					<div class="col-lg-12">
 						<textarea name="description" placeholder="Description"></textarea>
@@ -53,7 +51,6 @@
 		</div><!--post-project-fields end-->
 		<a href="#" title=""><i class="la la-times-circle-o"></i></a>
 	</div><!--post-project end-->
->>>>>>> eac5a24ca31ed10623c58f896b7e9325c94faee1
 </div><!--post-project-popup end-->
 
 <div class="post-popup job_post">
