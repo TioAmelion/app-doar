@@ -122,7 +122,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-sm-4">
                                         <input type="date" class="form-control @error('data_nasc') is-invalid @enderror"
-                                            name="data_nasc" id="data_nasc" value="{{old('data_nasc')}}">
+                                            name="data_nasc" id="data_nasc" value="{{old('data_nasc')}}" max="<?php echo date('Y-m-d', strtotime('-18 year')); ?>">
                                         @error('data_nasc')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -562,7 +562,7 @@
                  success:function(data)
                  {
                     console.log(data);
-                    $('select[name="provinciaI"]').empty();
+                    $('select[name="provinciaI"]');
                     $.each(data, function(key, value){ 
                        $('select[name="provinciaI"]').append('<option value="'+ key +'">'+ value+'</option>');
                     });
@@ -571,7 +571,7 @@
            } 
            else
            {
-              $('select[name="state"]').empty();
+              $('select[name="state"]');
            }
         });
 
@@ -590,7 +590,7 @@
                  success:function(data) 
                  { 
                     console.log(data); 
-                    $('select[name="municipioI"]').empty();
+                    $('select[name="municipioI"]');
                     $.each(data, function(key, value){ 
                        $('select[name="municipioI"]').append('<option style="width:100px" value="'+ key +'">'+ value +'</option>');
                     });

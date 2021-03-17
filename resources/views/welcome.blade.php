@@ -47,7 +47,11 @@
 								</div>
 							</div>
 							<div class="col-lg-12">
-								<textarea name="texto" placeholder="Descrição"></textarea>
+								<input type="file" name="file" onchange="previewFile(this)">
+								<img id="previewImg" style="max-width:250px; margin-top:10px;" />
+							</div>
+							<div class="col-lg-12">
+								<textarea name="texto" placeholder="Descrição" ></textarea>
 							</div>
 							<div class="col-lg-12">
 								<ul>
@@ -67,5 +71,17 @@
 </body>
 <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'a2plcpnl0235'})</script>
 <script src='assets/img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+<script>
+function previewFile(input){
+	var file=$("input[type=file]").get(0).files[0];
+	if(file){
+		var reader = new FileReader();
+		reader.onload = function(){
+			$('#previewImg').attr("src",reader.result);
+		}
+		reader.readAsDataURL(file);
+	}
+}
+</script>
 </html>
 

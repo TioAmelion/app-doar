@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\ProvinciaController;
 use App\Models\publicacao;
+use App\Models\instituicao;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,9 @@ Route::get('/', function () {
 });
 
 Route::get('/instituicoes',function(){
+    $dados = DB::table('instituicaos')->select('nome_instituicao')->get();
     $pagina = 'admin.includes.all_instituicoes';
-    return view('welcome',['corpo' => $pagina]);
+    return view('welcome',['corpo' => $pagina])->with('dados',$dados);
 });
 
 Route::get('/index', function () {

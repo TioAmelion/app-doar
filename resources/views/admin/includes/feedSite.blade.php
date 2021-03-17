@@ -55,7 +55,8 @@
 						<!-- <li><a href="#" title="">Full Time</a></li> -->
 						<!-- <li><span>$30 / hr</span></li> -->
 					</ul>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="#" title="">ver mais</a></p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... 
+					<a href="#" title="">ver mais</a></p>
 				</div>
 				<div class="job-status-bar">
 					<ul class="like-com">
