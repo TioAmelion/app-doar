@@ -74,7 +74,8 @@
 
 		<div class="post-popup pst-pj">
 			<div class="post-project">
-				<h3>Faça a Sua Doação</h3>
+				<h3>Faça a Sua Doação para - <span style="font-weight: bold" id="nome"></span></h3>
+				
 				<div class="post-project-fields">
                     <form id="form-doacao">
 						<div class="row">
@@ -202,6 +203,7 @@
 		//PEGAR O ID DA INSTITUIÇÃO
 		$('.com').on('click', function(element){
 			$('#instId').val(element.currentTarget.getAttribute('id'));
+			$('#nome').text(element.currentTarget.getAttribute('nomeInst'));
 		})
 	</script>
 </body>

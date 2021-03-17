@@ -1,0 +1,86 @@
+.reaction-container {
+    position: relative;
+}
+
+.reaction-container::before {
+    content: "."; 
+    opacity: 0; 
+    display: block; 
+    width: 44px; height: 10px; 
+    position: absolute; 
+    top: -10px; left: 0;
+}
+
+.reaction-box {
+    position: absolute;
+    bottom: 35px;
+    left: -12px;
+    width: 157px;
+    height: 55px;
+    background: #e0d9d8 !important;
+    border-radius: 28px;
+    display: none;
+}
+
+.reaction-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: #a5a5a5;
+    border-radius: 20px;
+    margin: 8px -1px 0 8px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0; 
+    transform: translate(0, 100px) scale(0);
+}
+
+.reaction-icon:hover {
+    transform-origin: bottom;
+    transform: scale(1.4) !important;
+}
+
+.reaction-container:hover .reaction-icon.show {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+.reaction-icon:hover > label {
+    visibility: visible;
+}
+
+label {
+    padding: 3px 5px 3px 5px;
+    min-width: 40px;
+    position: absolute;
+    left: calc(50% - 40px / 2);
+    top: -24px;
+    border-radius: 10px;
+    font-size: 11px;
+    color: #FFF;
+    background: #333;
+    visibility: hidden;
+}
+
+.reaction-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+}
+
+.reaction-container:hover > .reaction-box {
+	display: block;
+}
+
+.com > img {
+    filter: saturate(0);
+    opacity: .4;
+}
+
+.com > img:hover {
+    filter: saturate(1);
+    opacity: 1;
+}
+

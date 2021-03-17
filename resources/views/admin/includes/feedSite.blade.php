@@ -47,15 +47,30 @@
 				</div>
 				<div class="job_descp">
 					<h3>{{$dados->titulo}}</h3>
-					<p>{{$dados->texto}} </p>
+					<p>{{$dados->texto}}</p>
 				</div>
 				<div class="job-status-bar">
 					<ul class="like-com">
-						<li>
+						<li class="reaction-container">
 							<a href="#"><i class="la la-heart"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</a>
 							<span>25</span>
+							<div class="reaction-box">
+								<div class="reaction-icon">
+									<label>gostar</label>
+									<img class="teste" name="gostar" src="assets/images/reactions_love.png" alt="">
+								</div>
+								<div class="reaction-icon">
+									<label>urgente</label>
+									<img class="" name="urgente" src="assets/images/reactions_wow.png" alt="">
+								</div>
+								<div class="reaction-icon">
+									<label>mais urgente</label>
+									<img class="" name="mais urgente" src="assets/images/reactions_sad.png" alt="">
+								</div>
+							</div>
 						</li> 
-						<li><a href="#" title="" id="{{$dados->usuario_id}}" class="com post_project"><img src="assets/images/com.png" alt=""> Doar</a></li>
+						<li><a href="#" title="" id="{{$dados->usuario_id}}" nomeInst= "{{$dados->name}}" class="com post_project"><img src="assets/images/heart.svg" height="18px"></a></li>
+						<li> </li>
 					</ul>
 					<a><i class="la la-eye"></i>Visualizou 50</a>
 				</div>
@@ -120,6 +135,23 @@
 		</div><!--posts-section end-->
 	</div><!--main-ws-sec end-->
 </div>
+@include('admin.includes.script')
+<script>
+	$(function() {
 
-<script src="">
+		// $('.com').on('click', function () {
+		// 	alert('teste')
+		// });
+
+		$(".reaction-container").hover(function() {
+			_this = $(this);
+			_this.find(".reaction-box .reaction-icon").each( function(index, element) {
+				setTimeout(function() {
+					$(element).addClass("show");
+				}, index * 100);
+			});
+		}, function() {
+			$(".reaction-icon").removeClass("show")
+		});
+	})
 </script>

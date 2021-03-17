@@ -24,9 +24,9 @@ Route::get('/perfil', function () {
     return view('auth/profile');
 });
 
-Route::get('/ajax-toastr', function(){
+Route::get('/ajax-toastr', function () {
     return view('toastr');
-})->middleware(['auth']);   
+})->middleware(['auth']);
 
 Route::resource('doacao', 'App\Http\Controllers\DoacaoController')->middleware(['auth']);
 
