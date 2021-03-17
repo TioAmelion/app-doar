@@ -1948,7 +1948,7 @@ select {
 .inp-field:before {
 	content: '\f107';
 	position: absolute;
-	top: 13px;
+	top: 27px;
 	right: 15px;
 	color: #717171;
 	font-family: fontawesome;

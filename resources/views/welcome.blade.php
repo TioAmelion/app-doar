@@ -83,7 +83,7 @@
 								<input type="text" id="textoDoacao" name="textoDoacao" placeholder="O que pretende doar">
 								<span id="textoDoacaoError" style="color: red"></span>
 							</div>
-							<!-- <div class="col-lg-12">
+							<div class="col-lg-12">
 								<div class="inp-field">
 									<select name="categoria">
 										<option>Categorias</option>
@@ -91,7 +91,7 @@
 										<option value="nao_urgencia">Roupas</option>
 									</select>
 								</div>
-							</div> -->
+							</div>
 							<div class="col-lg-12">
 								<br>
 								<input type="number" id="quantidade" name="quantidade" placeholder="Quantidade do item">
