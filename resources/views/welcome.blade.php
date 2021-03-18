@@ -28,7 +28,7 @@
 
 		@auth
 		{{-- MODAL DA INSTITUIÇÃO --}}
-		<div class="post-popup job_post">
+		<div class="post-popupp job_post">
 			<div class="post-project">
 				<h3>Doação</h3>
 				<div class="post-project-fields">
@@ -116,7 +116,7 @@
 		</div>
 
 		{{-- MODAL DO DOADOR --}}
-		<div class="post-popup-doador job_post">
+		<div class="post-popup job_post">
 			<div class="post-project">
 				<h3>Doe um item para ajudar as pessoas</h3>
 				<div class="post-project-fields">
