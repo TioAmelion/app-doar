@@ -19,7 +19,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" title="">
+						<a href="/instituicoes" title="">
 							<span><img src="assets/images/icon2.png" alt=""></span>
 							Instituições
 						</a>
@@ -28,18 +28,39 @@
 							<li><a href="assets/company-profile.html" title="">Centros</a></li>
 						</ul> 
 					</li>
-					<li>
-						<a href="#" title="">
-							<span><img src="assets/images/icon3.png" alt=""></span>
-							Doadores
-						</a>
-					</li>
-					<li>
-						<a href="#" title="">
-							<span><img src="assets/images/icon4.png" alt=""></span>
-							Fornecedores
-						</a>
-					</li>
+							<li>
+								<a href="/" title="">
+									<span><img src="assets/images/icon1.png" alt=""></span>
+									Home
+								</a>
+							</li>
+								<ul>
+									<li><a href="#" title="">Lares</a></li>
+									<li><a href="assets/company-profile.html" title="">Centros</a></li>
+								</ul> 
+							</li>
+							<li>
+								<a href="#" title="">
+									<span><img src="assets/images/icon3.png" alt=""></span>
+									Doadores
+								</a>
+							</li>
+							@auth
+								<li>
+								</li>
+							@else
+								<li>
+									<a href="{{ route('login') }}" title="">
+										<span><img src="assets/images/icon4.png" alt=""></span>
+										Login
+									</a>
+								</li>
+							@endauth
+						</ul>
+					</nav><!--nav end-->
+					<div class="menu-btn">
+						<a href="#" title=""><i class="fa fa-bars"></i></a>
+					</div><!--menu-btn end-->
 					@auth
 						<li>
 						</li>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use DB;
 
+
 class PublicacaoController extends Controller
 {
     /**
