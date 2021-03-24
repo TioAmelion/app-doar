@@ -90,6 +90,12 @@ label {
     top: 10px;
 }
 
+.post-jbd > img{
+    position: relative;
+    left: -6px;
+    top: 10px;
+}
+
 .estado_pergunta > input[type="radio"] {
     position: relative;
     left: -218px;

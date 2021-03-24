@@ -28,7 +28,7 @@
 
 		@auth
 		{{-- MODAL DA INSTITUIÇÃO --}}
-		<div class="post-popupp job_post">
+		<div class="post-popup post-popupi job_post">
 			<div class="post-project">
 				<h3>Doação</h3>
 				<div class="post-project-fields">
@@ -40,7 +40,7 @@
 								<span id="tituloError" style="color: red"></span>
 							</div>
 							<div class="col-lg-12">
-								<div class="inp-field">
+								<div class="inp-field inst">
 									<br>
 									<select class="text-ligth" id="classificacao" name="classificacao">
 										<option selected>Selecione uma Necessidade</option>
@@ -63,8 +63,7 @@
 							<br>
 							<div class="col-lg-12">
 								<ul>
-									<li><button class="active" id="publicar" type="submit"
-											value="post">Publicar</button></li>
+									<li><button class="active" id="publicar" type="submit" value="post">Publicar</button></li>
 								</ul>
 							</div>
 						</div>
