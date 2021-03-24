@@ -20,7 +20,7 @@ class CreatePublicacaosTable extends Migration
             $table->string('titulo', 50);
             $table->string('classificacao');
             $table->string('texto');
-            $table->string('image')->nullable();  
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

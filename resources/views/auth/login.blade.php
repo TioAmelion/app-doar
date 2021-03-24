@@ -92,7 +92,7 @@
                                         </div>
                                     </form>
                                     <div class="login-resources">
-                                        <h4>Login Via Rede Social</h4>
+                                        <h4><a class="text-danger h6" href="{{route('register')}}">Se não tem uma conta, cadastra-se</a></h4>
                                         <ul>
                                             <li><a href="#" title="" class="fb"><i class="fa fa-facebook"></i>Facebook</a></li>
                                             <li><a href="#" title="" class="tw"><i class="fa fa-twitter"></i>Twitter</a></li>
