@@ -20,15 +20,42 @@ $(window).on("load", function() {
     //  ============= POST JOB POPUP FUNCTION =========
 
     $(".post-jb").on("click", function(){
-        $(".post-popup.job_post").addClass("active");
-        $(".wrapper").addClass("overlay");
+        var popupJobPost = $(".post-popup:not(.post-popupi).job_post");
+        popupJobPost.addClass("active");
+        $(".wrapper").addClass("overlay").css({height: parseInt(popupJobPost.height()) + 60});
         return false;
     });
     $(".post-project > a").on("click", function(){
-        $(".post-popup.job_post").removeClass("active");
+        $(".post-popup:not(.post-popupi).job_post").removeClass("active");
+        $(".wrapper").removeClass("overlay").css({height: ''});
+        return false;
+    });
+
+    $(".post-jbd").on("click", function(){
+        $(".post-popup.post-popupi.job_post").addClass("active");
+        $(".wrapper").addClass("overlay"); 
+        return false;
+    });
+
+    $(".post-project > a").on("click", function(){
+        $(".post-popup.post-popupi.job_post").removeClass("active");
         $(".wrapper").removeClass("overlay");
         return false;
     });
+    
+
+    $(".post-jbd").on("click", function(){
+        $(".post-popup.post-popupi.job_post").addClass("active");
+        $(".wrapper").addClass("overlay");
+        return false;
+    });
+
+    $(".post-project > a").on("click", function(){
+        $(".post-popup.post-popupi.job_post").removeClass("active");
+        $(".wrapper").removeClass("overlay");
+        return false;
+    });
+    
 
     //  ============= SIGNIN CONTROL FUNCTION =========
 

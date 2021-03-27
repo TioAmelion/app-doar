@@ -90,3 +90,62 @@ label {
     top: 10px;
 }
 
+.post-jbd > img{
+    position: relative;
+    left: -6px;
+    top: 10px;
+}
+
+.estado_pergunta > input[type="radio"] {
+    position: relative;
+    left: -218px;
+    top: 6px;
+    height: 15px;
+    margin: -5px;
+}
+
+.estado_pergunta > span {
+    left: 27px;
+    position: relative;
+    top: -12px;
+}
+
+.estado_pergunta .estado_p {
+    font-weight: bold;
+    position: relative;
+    left: 19px;
+}
+
+.estado_pergunta > img {
+    position: relative;
+    left: 211px;
+    top: -13px;
+}
+
+.estado_local .estado_l {
+    font-weight: bold;
+    position: relative;
+    left: -2px;
+    top: -10px;
+}
+
+.estado_local > img {
+    height: 18px;
+    left: 7px;
+    position: relative;
+    top: -11px;
+    min-width: 44px;
+}
+
+.data_validade .data {
+    visibility: hidden;
+}
+
+.data_validade:hover > .data {
+    position: relative;
+    left: 14;
+    font-weight: bold;
+    visibility: visible;
+}
+
+

@@ -16,7 +16,7 @@
 						@if (Auth::user()->id == $idPessoa->id)
 							<li><a class="post-jb active" href="#" title=""><img src="assets/images/tap.svg" height="18px"> Doe um item</a></li>
 						@else
-							<li><a class="post-jb active" href="#" title=""><img src="assets/images/tap.svg" height="18px"> Publique uma Necessidade</a></li>
+							<li><a class="post-jbd active" href="#" title=""><img src="assets/images/tap.svg" height="18px"> Publique uma Necessidade</a></li>
 						@endif
 					@endforeach
 				</ul>
