@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDoacaosTable extends Migration
+class CreateMunicipiosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateDoacaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('doacaos', function (Blueprint $table) {
+        Schema::create('municipios', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantidade');
-            $table->date('data');
-            $table->foreignId('doador_id')->constrained('doadors')->onDelete('cascade');
-            $table->foreignId('instituicao_id')->constrained('instituicaos')->onDelete('cascade');
+            $table->foreignId('provincia_id')->constrained('provincias')->onDelete('cascade');
+            
+            $table->string('nome_municipio');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateDoacaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doacaos');
+        Schema::dropIfExists('municipios');
     }
 }

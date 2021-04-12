@@ -17,8 +17,10 @@ class CreatePublicacaosTable extends Migration
             $table->id();
             $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');
 
-            $table->string('nome', 250);
-            $table->string('image');
+            $table->string('titulo', 50);
+            $table->string('classificacao');
+            $table->string('texto');
+            $table->string('image')->nullable();  
             $table->timestamps();
         });
     }

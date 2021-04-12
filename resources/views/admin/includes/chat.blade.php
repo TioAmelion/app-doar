@@ -32,6 +32,10 @@
 								<i class="la la-dollar"></i>
 							</div>
 						</div>
+					</form>
+				</div><!--post-project-fields end-->
+				<a href="#" title=""><i class="la la-times-circle-o"></i></a>
+			</div><!--post-project end-->
 					</div>
 					<div class="col-lg-12">
 						<textarea name="description" placeholder="Description"></textarea>
@@ -49,7 +53,7 @@
 	</div><!--post-project end-->
 </div><!--post-project-popup end-->
 
-		<div class="post-popup job_post">
+<div class="post-popup job_post">
 			<div class="post-project">
 				<h3>Post a job</h3>
 				<div class="post-project-fields">
@@ -99,9 +103,9 @@
 				</div><!--post-project-fields end-->
 				<a href="#" title=""><i class="la la-times-circle-o"></i></a>
 			</div><!--post-project end-->
-		</div><!--post-project-popup end-->
+</div><!--post-project-popup end-->
 
-		<div class="chatbox-list">
+<div class="chatbox-list">
 			<div class="chatbox">
 				<div class="chat-mg">
 					<a href="#" title=""><img src="images/resources/usr-img1.png" alt=""></a>
@@ -247,4 +251,4 @@
 					</div><!--chat-list end-->
 				</div><!--conversation-box end-->
 			</div>
-		</div><!--chatbox-list end-->
+</div><!--chatbox-list end-->

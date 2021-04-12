@@ -527,7 +527,6 @@ nav > ul > li > a:hover {
 	float: right;
 	width: 110px;
 	border-left: 1px solid #dd3e2b;
-	border-right: 1px solid #dd3e2b;
 	box-sizing: border-box;
 	position: relative;
 }
@@ -540,8 +539,7 @@ nav > ul > li > a:hover {
 .user-account-settingss {
 	position: absolute;
 	top: 100%;
-	right: 0;
-	width: 240px;
+	width: 184px;
 	background-color: #fff;
 	border-left: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
@@ -1948,7 +1946,7 @@ select {
 .inp-field:before {
 	content: '\f107';
 	position: absolute;
-	top: 13px;
+	top: 12px;
 	right: 15px;
 	color: #717171;
 	font-family: fontawesome;

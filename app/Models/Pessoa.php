@@ -11,10 +11,11 @@ class pessoa extends Model
     
     protected $fillable = [
         'usuario_id',
+        'pais_id',
+        'provincia_id',
+        'municipio_id',
         'nome_pessoa',
         'telefone',
-        'provincia',
-        'municipio',
         'data_nascimento',
         'genero',
         'num_bi'
