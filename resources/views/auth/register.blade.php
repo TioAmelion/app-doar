@@ -71,7 +71,7 @@
                                             name="pais" id="pais">
                                             <option selected disabled>Selecione o País</option>
                                             @foreach($paises as $pais)
-                                            <option  value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>
+                                                <option  value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>
                                             @endforeach
                                         </select>
                                         @error('pais')
@@ -84,8 +84,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-lg-3" id="p">
-                                        <select class="form-control @error('provincia') is-invalid @enderror col-12"
-                                            name="provincia" id="provincia">
+                                        <select class="form-control @error('provincia') is-invalid @enderror col-12" name="provincia" id="provincia">
                                             <option selected disabled>Selecione a Provincia</option>
                                         </select>
                                         @error('provincia')
@@ -96,8 +95,7 @@
                                     </div>
 
                                     <div class="form-group col-lg-3" id="m">
-                                        <select class="form-control @error('municipio') is-invalid @enderror col-12"   
-                                            name="municipio" id="municipio">
+                                        <select class="form-control @error('municipio') is-invalid @enderror col-12" name="municipio" id="municipio">
                                             <option selected disabled>Selecione o municipio</option>
                                         </select>
                                         @error('municipio')
@@ -108,8 +106,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-4" id="nd">
-                                        <input type="text" class="form-control @error('num_bi') is-invalid @enderror"
-                                            id="num_bi" name="num_bi" placeholder="Número do B.I"
+                                        <input type="text" class="form-control @error('num_bi') is-invalid @enderror" id="num_bi" name="num_bi" placeholder="Número do B.I"
                                             value="{{old('num_bi')}}">
                                         @error('num_bi')
                                         <span class="invalid-feedback" role="alert">
@@ -259,8 +256,8 @@
                                             name="paisI" id="paisI">
                                             <option selected disabled>Selecione o País</option>
                                             @foreach($paises as $pais)
-                                                @if($pais->nome_pais == "Angola")
-                                                    <option value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>
+                                                @if ($pais->id == 1)
+                                                    <option  value="{{$pais->id}}" {{ old('pais') == 'Angola' ? 'selected' : '' }}>{{$pais->nome_pais}}</option>    
                                                 @endif
                                             @endforeach
                                         </select>
@@ -284,13 +281,13 @@
                                         @enderror
                                     </div>
 
-                                    <div class="form-group col-md-auto">
+                                    <div class="form-group col-lg-3">
                                         <select class="form-control @error('municipioI') is-invalid @enderror col-12"
                                             name="municipioI" id="municipioI">
                                             <option selected disabled>Selecione o municipio</option>
                                         </select>
                                         @error('municipioI')
-                                        <spans class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
@@ -377,98 +374,87 @@
 <script type="text/javascript">
     var instituicao =  $('#instituicao');
     var doador =  $('#doador')
-
     var form_atual = ""
-
     $(document).ready(function(){
-         
+        
         if(localStorage.getItem('form_atual') === "instituicao"){
             
             instituicao.show()
             doador.hide()
-
         } else { 
-
             instituicao.hide()
             doador.show() 
-
         } 
     })
-
     function insti(){
-
         form_atual = "instituicao"
         localStorage.setItem('form_atual', form_atual)
-
         doador.hide()
         instituicao.show()
     }
-
     function doa(){
-
         localStorage.removeItem('form_atual');
-
         instituicao.hide()
         doador.show()
     }
 </script>
 <script type="text/javascript">
     $(document).ready(function (){
-
         
         $('select[id="pais"]').on('change',function(){
             var pais_id = $(this).val();  
             
             var option = $('#pais').find(":selected").text();
-                   
-            if(option == "Angola") {
-                $('#provincia').show()
-                $('#municipio').show()
-                $('#num_bi').show()
-                $('#p').show()
-                $('#m').show()
-                $('#nb').show()
-
-                $('#telefone').attr("placeholder", "(+244) 999 999 999")
-                $('#telefone').mask("(+244) 999-999-999")
-                $('#telefoneI').mask("(+244) 999-999-999")
- 
-            } else if(option == "Moçambique" ) {
-                $('#provincia').hide() 
-                $('#municipio').hide()
-                $('#num_bi').hide()
-                $('#m').hide()
-                $('#nb').hide()
-                $('#p').hide()
- 
-                $('#telefone').attr("placeholder", "(+55) 99 99999 9999")
-                $('#telefone').mask("(+55) 99 99999 9999")
-
-            } else if(option== "Portugal") {
-                $('#provincia').hide()
-                $('#municipio').hide()
-                $('#num_bi').hide()
-                $('#p').hide()
-                $('#m').hide()
-                $('#nb').hide()
-
-                $('#telefone').attr("placeholder", "(+351) 999 999 999")
-                $('#telefone').mask("(+351) 999 999 999")
-
-            } else if(option == "Brasil") {
-                $('#provincia').hide()
-                $('#municipio').hide()
-                $('#num_bi').hide()
-                $('#p').hide()
-                $('#m').hide()
-                $('#nb').hide()  
- 
-                $('#telefone').attr("placeholder", "(+258) 99 999 9999")
-                $('#telefone').mask("(+258) 99 999 9999")
+            switch (option.trim()) {
+                
+                case "Angola":
+                    $('#provincia').show();
+                    $('#municipio').show();
+                    $('#num_bi').show();
+                    $('#p').show();
+                    $('#m').show();
+                    $('#nb').show();
+                    $('#telefone').attr("placeholder", "(+244) 999 999 999");
+                    $('#telefone').mask("(+244) 999-999-999");
+                    break;
+                case "Portugal":
+                    $('#provincia').hide();
+                    $('#municipio').hide();
+                    $('#num_bi').hide();
+                    $('#p').hide();
+                    $('#m').hide();
+                    $('#nb').hide();
+                    $('#telefone').attr("placeholder", "(+351) 999 999 999");
+                    $('#telefone').mask("(+351) 999 999 999");
+                    break;
+                case "Moçambique":
+                    $('#provincia').hide();
+                    $('#municipio').hide();
+                    $('#num_bi').hide();
+                    $('#m').hide()
+                    $('#nb').hide()
+                    $('#p').hide()
+                    $('#telefone').attr("placeholder", "(+55) 99 99999 9999")
+                    $('#telefone').mask("(+55) 99 99999 9999")
+                    break;
+                case "Brasil": 
+                    $('#provincia').hide();
+                    $('#municipio').hide();
+                    $('#num_bi').hide();
+                    $('#p').hide();
+                    $('#m').hide();
+                    $('#nb').hide();
+    
+                    $('#telefone').attr("placeholder", "(+258) 99 999 9999");
+                    $('#telefone').mask("(+258) 99 999 9999");
+                    break;    
+            
+                default:
+                    break;
             }
-
+                   
            if(pais_id){
-
+            
               $.ajax({
                  url : 'provincia/' +pais_id,
                  type : "GET",
@@ -477,10 +463,12 @@
                  {
                     console.log(data);
                     $('select[name="provincia"]').empty();
+                    $('select[name="provincia"]').append('<option>'+ 'Selecione a Provincia ' +'</option>');
                     $.each(data, function(key, value){ 
                        $('select[name="provincia"]').append('<option value="'+ key +'">'+ value+'</option>');
                     });
                  }
+                 
               });
            } 
            else
@@ -488,22 +476,20 @@
               $('select[name="state"]').empty();
            }
         });
-
         $('select[id="provincia"]').on('change',function(){
-
             var option = $('#provincia').find(":selected").text();
-
-            if(option == "Luanda") {
-
-                $('#num_bi').mask("999999999LA999")
-
-            } else if(option == "Malanje" ) {
-
-                $('#num_bi').mask("999999999ML999")
+            switch (option.trim()) {
+                case "Luanda":
+                    $('#num_bi').mask("999999999LA999");
+                    break;
+                case "Malanje":
+                    
+                    $('#num_bi').mask("999999999ML999");
+                    break;
+                default:
+                    break;
             }
-
            var provincia_id = jQuery(this).val();
-
            if(provincia_id)
            {
               $.ajax({
@@ -514,6 +500,7 @@
                  { 
                     console.log(data); 
                     $('select[name="municipio"]').empty();
+                    $('select[name="municipio"]').append('<option style="width:100px">'+ 'Selecione o municipio' +'</option>');
                     $.each(data, function(key, value){ 
                        $('select[name="municipio"]').append('<option style="width:100px" value="'+ key +'">'+ value +'</option>');
                     });
@@ -525,26 +512,22 @@
               $('select[name="state"]').empty();
            }
         });
-
         //DADOS DA INSTITUICAO
         $('select[id="paisI"]').on('change',function(){
             var Pais_id = $(this).val();  
             
             var option = $('#paisI').find(":selected").text();
                    
-            if(option == "Angola") {
+            if(option.trim() == "Angola") {
                 $('#provincia').show()
                 $('#municipio').show()
                 $('#num_bi').show()
                 $('#p').show()
-
                 $('#telefoneI').attr("placeholder", "(+244) 999-999-999")
                 $('#telefoneI').mask("(+244) 999-999-999")
  
             }
-
            if(Pais_id){
-
               $.ajax({
                  url : 'provincia/' +Pais_id,
                  type : "GET",
@@ -553,6 +536,7 @@
                  {
                     console.log(data);
                     $('select[name="provinciaI"]').empty();
+                    $('select[name="provinciaI"]').append('<option>'+ 'Selecione a Provincia' +'</option>');
                     $.each(data, function(key, value){ 
                        $('select[name="provinciaI"]').append('<option value="'+ key +'">'+ value+'</option>');
                     });
@@ -564,13 +548,9 @@
               $('select[name="state"]').empty();
            }
         });
-
         $('select[id="provinciaI"]').on('change',function(){
-
             var option = $('#provinciaI').find(":selected").text();
-
            var Provincia_id = jQuery(this).val();
-
            if(Provincia_id)
            {
               $.ajax({
@@ -581,6 +561,7 @@
                  { 
                     console.log(data); 
                     $('select[name="municipioI"]').empty();
+                    $('select[name="municipioI"]').append('<option style="width:100px">'+ 'Selecione o municipio' +'</option>');
                     $.each(data, function(key, value){ 
                        $('select[name="municipioI"]').append('<option style="width:100px" value="'+ key +'">'+ value +'</option>');
                     });
