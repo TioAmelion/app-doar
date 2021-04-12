@@ -48,6 +48,7 @@
 										<option value="Produtos de Higiene">Produtos de Higiene</option>
 										<option value="Medicamentos">Medicamentos</option>
 										<option value="Electrodomésticos">Electrodomésticos</option>
+										<option value="Matériais Escolar">Matériais Escolar</option>
 										<option value="Roupas">Roupas</option>
 									</select>
 									<span id="classificacaoError" style="color: red"></span>
@@ -135,6 +136,7 @@
 										<option class="alimentos" value="Produtos Alimenticios">Produtos Enlatados</option>
 										<option value="Produtos de Higiene">Produtos de Higiene</option>
 										<option value="Medicamentos">Medicamentos</option>
+										<option value="Matériais Escolar">Matériais Escolar</option>
 										<option value="Electrodomésticos">Electrodomésticos</option>
 										<option value="Roupas">Roupas</option>
 									</select>
