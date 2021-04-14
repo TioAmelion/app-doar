@@ -24,11 +24,13 @@ $(window).on("load", function() {
         $(".wrapper").addClass("overlay");
         return false;
     });
+
     $(".post-project > a").on("click", function(){
         $(".post-popup:not(.post-popupi).job_post").removeClass("active");
         $(".wrapper").removeClass("overlay");
         return false;
     });
+    
 
     $(".post-jbd").on("click", function(){
         $(".post-popup.post-popupi.job_post").addClass("active");

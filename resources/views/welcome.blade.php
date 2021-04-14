@@ -6,25 +6,27 @@
 </head>
 
 <body oncontextmenu="return false;">
-	<div class="wrapper">
-		@include('admin.includes.navbarSite')
-		<main>
-			<div class="main-section">
-				<div class="container">
-					<div class="main-section-data">
-						<div class="row">
-							@auth
-							@include('admin.includes.sectionLeft')
-							@endauth
-							@include('admin.includes.feedSite')
-							@guest
-							@include('admin.includes.sectionRigth')
-							@endguest
-						</div>
-					</div><!-- main-section-data end-->
-				</div>
-			</div>
-		</main>
+    <div class="wrapper">
+        @include('admin.includes.navbarSite')   
+        <main>
+            <div class="main-section">
+                <div class="container">
+                    <div class="main-section-data">
+                        <div class="row">
+                            @auth
+								@isset($sectionLeft)
+									@include($sectionLeft)
+								@endisset
+                            @endauth
+                            @include($corpo)
+                            @guest
+                                @include('admin.includes.sectionRigth')
+                            @endguest
+                        </div>
+                    </div><!-- main-section-data end-->
+                </div> 
+            </div>
+        </main>
 
 		@auth
 		{{-- MODAL DA INSTITUIÇÃO --}}
@@ -54,8 +56,11 @@
 								</div>
 							</div>
 							<div class="col-lg-12">
-								<textarea class="text-dark" name="descricao" id="descricao" placeholder="Descrição"></textarea>
-								<span id="descricaoError" style="color: red"></span>
+								<input type="file" name="file" onchange="previewFile(this)">
+								<img id="previewImg" style="max-width:250px; margin-top:10px;" />
+							</div>
+							<div class="col-lg-12">
+								<textarea name="texto" placeholder="Descrição" ></textarea>
 							</div>
 							<div class="col-lg-12">
 								<!-- <input type="file" id="imagem" name="imagem" value="" placeholder=""> -->
@@ -301,4 +306,16 @@
 </script>
 <script src='assets/img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
 
+<script>
+function previewFile(input){
+	var file=$("input[type=file]").get(0).files[0];
+	if(file){
+		var reader = new FileReader();
+		reader.onload = function(){
+			$('#previewImg').attr("src",reader.result);
+		}
+		reader.readAsDataURL(file);
+	}
+}
+</script>
 </html>
