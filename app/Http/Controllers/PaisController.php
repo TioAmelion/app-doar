@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\pais;
+
 
 use Illuminate\Http\Request;
 class PaisController extends Controller
 {
     public function getPais()
     {
-    	$paises = pais::all()->pluck('id', 'nome_pais'); 
+    	$paises = pais::all()->pluck('id', 'nome_pais');
     	return view('auth.register', ['pais' => $paises]);
     }
 }
+
