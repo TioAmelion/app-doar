@@ -10,6 +10,8 @@ use App\Models\publicacao;
 
 Route::resource('/', 'App\Http\Controllers\PublicacaoController');
 
+Route::get('/send-markdown-mail', [MailController::class, 'sendOfferMail']);
+
 Route::get('/index', function () {
     return view('admin/layout');
 });
@@ -37,6 +39,7 @@ Route::get('provincia/{id}', [ProvinciaController::class, 'getProvincia']);
 Route::resource('instituicao', 'App\Http\Controllers\InstituicaoController');
 
 Route::resource('fornecedor', 'App\Http\Controllers\FornecedorController');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

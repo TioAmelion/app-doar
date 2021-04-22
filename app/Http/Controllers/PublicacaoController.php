@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\LoginRequest;
 use App\Models\publicacao;
 use App\Models\pessoa;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Support\Facades\Auth;
-use Validator;
-use DB;
+use Illuminate\Support\Facades\DB;
+
+
+
 
 class PublicacaoController extends Controller
 {
@@ -20,11 +24,18 @@ class PublicacaoController extends Controller
     public function index()
     {
         $idPessoas = pessoa::all();
-        
+
+        session_start();
+        $test = $_SESSION['user_id'];
+
+        $idPessoas = DB::table('pessoas')->where('usuario_id', $test)->first();
+        //$idInstPessoa = DB::table('instituicaos')->where('usuario_id', $test)->first();
+
         $pub = DB::table('publicacaos')
             ->join('users', 'publicacaos.usuario_id', '=', 'users.id')
             ->select('users.name', 'publicacaos.*')->get();
-        return view('welcome')->with(['pub'=> $pub, 'idPessoas' => $idPessoas]);
+        //return view('welcome')->with(['pub'=> $pub, 'idPessoas' => $idPessoas]);
+        return view('welcome')->with((['pub'=> $pub, 'idPessoas' => $idPessoas]));
     }
 
     /**
